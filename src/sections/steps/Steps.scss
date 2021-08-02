@@ -1,0 +1,51 @@
+@import '../../common/constants.scss';
+
+.steps {
+    width: 100%;
+
+    &__banner {
+        background-color: $light-grey;
+        display: flex;
+        justify-content: center;
+        padding: 40px 0;
+        margin: 20px 0;
+    }
+
+    &__column {
+        max-width: 150px;
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__icon {
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        &--1 {
+            background-image: url(../../assets/Icon-1.png);
+        }
+        &--2 {
+            background-image: url(../../assets/Icon-2.png);
+        }
+        &--3 {
+            background-image: url(../../assets/Icon-3.png);
+        }
+        &--4 {
+            background-image: url(../../assets/Icon-4.png);
+        }
+    }
+
+    &__details {
+        position: relative;
+        &::before {
+            @include line();
+        }
+    }
+
+    &__button {
+        @include button();
+    }
+}

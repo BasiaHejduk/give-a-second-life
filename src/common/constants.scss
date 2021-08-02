@@ -20,3 +20,13 @@ $merri: 'Merriweather', serif;
     font-size: 24px;
     cursor: pointer;
 }
+
+@mixin line {
+    content: "";
+    height: 1px;
+    width: 70px;
+    background-color: $dark-grey;
+    position: absolute;
+    left: 25%;
+    top: -10px;
+}
