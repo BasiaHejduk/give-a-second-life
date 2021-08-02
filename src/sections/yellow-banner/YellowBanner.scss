@@ -1,0 +1,20 @@
+@import '../../common/constants.scss';
+
+.yellow-banner {
+    width: 100%;
+    background-color: $yellow;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 40px;
+
+    &__column {
+        max-width: 300px;
+    }
+
+    &__number {
+        color: $brown;
+        font-size: 60px;
+        line-height: 60px;
+    }
+}

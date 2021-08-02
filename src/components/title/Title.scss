@@ -1,0 +1,21 @@
+@import '../../common/constants.scss';
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__text {
+        font-size: 30px;
+        line-height: 50px;
+        letter-spacing: -0.76px;
+        text-align: center;
+    }
+
+    &__decor {
+        width: 253px;
+        height: 33px;
+        background-image: url(../../assets/Decoration.svg);
+        background-size: cover;
+    }
+};

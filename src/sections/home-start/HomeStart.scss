@@ -1,0 +1,39 @@
+@import '../../common/constants.scss';
+
+.start {
+    height: 650px;
+    
+    &__wrapper {
+        height: 100%;
+        margin-right: 142px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__img {
+        width: 900px;
+        height: 650px;
+        background-image: url(../../assets/Hero-Image.png);
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: -300px;
+    }
+
+    &__call-to-action {
+        position: relative;
+        max-width: 600px;
+        margin-right: 80px;
+        margin-top: 40px;
+    }
+
+    &__buttons {
+        margin-top: 50px;
+
+    }
+
+    &__button {
+        @include button();
+    }
+}

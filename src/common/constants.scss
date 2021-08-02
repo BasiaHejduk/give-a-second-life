@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&family=Open+Sans:wght@300;400&display=swap');
+
+
+$yellow: #FAD648;
+$brown: #5E5322;
+$white: #FFFFFF;
+$black: #000000;
+$dark-grey: #3C3C3C;
+$light-grey: #3C3C3C26;
+
+$open-sans: 'Open Sans', sans-serif;
+$merri: 'Merriweather', serif;
+
+@mixin button {
+    width: 200px;
+    height: 100px;
+    border: 0.75px solid $dark-grey;
+    background-color: $white;
+    margin: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}

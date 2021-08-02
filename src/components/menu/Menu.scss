@@ -1,0 +1,47 @@
+@import '../../common/constants.scss';
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 142px;
+
+    &__login-buttons {
+        display: flex;
+    }
+
+    &__login-list {
+        list-style: none;
+        display: flex;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+
+    &__login {
+        font-size: 14px;
+        padding: 10px;
+
+        &:hover {
+            border: 0.75px solid $yellow;
+        }
+    }
+
+    &__item-list {
+        list-style: none;
+        display: flex;
+    }
+
+    &__item {
+        font-size: 18px;
+        padding: 10px 20px;
+        margin: 0 5px;
+        cursor: pointer;
+
+        &:hover {
+            border: 0.75px solid $dark-grey;
+        }
+    }
+}
