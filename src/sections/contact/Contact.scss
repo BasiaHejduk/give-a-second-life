@@ -1,0 +1,98 @@
+@import '../../common/constants.scss';
+
+.contact {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+
+    &__img {
+        width: 100%;
+        height: 700px;
+        background-image: url(../../assets/Background-Image.png);
+        background-size: cover;
+        opacity: 0.3;
+        position: absolute;
+    }
+
+    &__box {
+        position: relative;
+        margin-right: 140px;
+        width: 30vw;
+    }
+
+    &__form {
+        margin: 50px 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__data {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__input-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__form-input {
+        border: none;
+        border-bottom: 2px solid $dark-grey;
+        width: 200px;
+        margin: 10px 0;
+        font-size: 16px;
+        color: $dark-grey;
+        opacity: 0.4;
+
+        &--msg {
+            width: 100%;
+            height: 100px;
+        }
+    }
+
+    &__form-label {
+        font-size: 16px;
+        color: $black;
+        font-weight: 700;
+        margin-top: 10px;
+    }
+
+    &__form-button {
+        margin-top: 30px;
+        font-size: 18px;
+        padding: 10px 20px;
+        width: 200px;
+        border: 0.75px solid $dark-grey;
+        background-color: $white;
+        align-self: flex-end;
+        cursor: pointer;
+    }
+
+    &__copywright {
+        position: absolute;
+        bottom: -60px;
+        left: 45%;
+    }
+
+    &__social-media {
+        margin-right: 140px;
+        position: absolute;
+        bottom: -50px;
+        display: flex;
+    }
+    &__facebook {
+        height: 30px;
+        width: 30px;
+        background-image: url(../../assets/Facebook.png);
+    }
+    &__instagram {
+        height: 30px;
+        width: 30px;
+        background-image: url(../../assets/Instagram.png);
+        margin-left: 10px;
+    }
+}

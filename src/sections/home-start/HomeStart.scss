@@ -5,7 +5,6 @@
     
     &__wrapper {
         height: 100%;
-        margin-right: 142px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -24,12 +23,16 @@
     &__call-to-action {
         position: relative;
         max-width: 600px;
-        margin-right: 80px;
+        margin-right: 250px;
         margin-top: 40px;
+        display: flex;
+        flex-direction: column;
     }
 
     &__buttons {
         margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
 
     }
 
