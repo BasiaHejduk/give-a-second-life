@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Title from '../../components/title/Title';
 import { API_URL } from '../../common/helpers';
 import './Contact.scss';
+import { API_URL } from '../../common/helpers';
+import { useState } from 'react';
 
 const Contact = () => {
     const [name, setName] = useState("");
@@ -47,7 +49,7 @@ const Contact = () => {
     }
 
     return (
-        <div className="contact">
+        <div className="contact" name="contact">
             <div className="contact__img"></div>
             <div className="contact__box">
                 <Title text="Skontaktuj się z nami"></Title>
@@ -91,8 +93,8 @@ const Contact = () => {
             </div>
             <p className="contact__copywright">Copyright by Coders Lab</p>
             <div className="contact__social-media">
-                <div className="contact__facebook"></div>
-                <div className="contact__instagram"></div>
+                <div className="contact__facebook" />
+                <div className="contact__instagram" />
             </div>
         </div>
     )

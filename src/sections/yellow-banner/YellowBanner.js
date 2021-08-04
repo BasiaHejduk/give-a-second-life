@@ -2,7 +2,7 @@ import './YellowBanner.scss';
 
 const YellowBanner = () => {
     return (
-        <div className="yellow-banner">
+        <div className="yellow-banner" name="yellow-banner">
             <div className="yellow-banner__column">
                 <p className="yellow-banner__number">10</p>
                 <p className="yellow-banner__headline">ODDANYCH WORKÓW</p>
