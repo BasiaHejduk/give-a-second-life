@@ -2,10 +2,9 @@ import Title from '../../components/title/Title';
 import Menu from '../../components/menu/Menu';
 import './HomeStart.scss';
 
-
 const HomeStart = () => {
     return (
-        <div className="start">
+        <div className="start" name="start">
             <Menu/>
             <div className="start__wrapper">
                 <div className="start__img"></div>

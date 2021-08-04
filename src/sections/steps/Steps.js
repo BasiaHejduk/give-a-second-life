@@ -3,7 +3,7 @@ import './Steps.scss';
 
 const Steps = () => {
     return (
-        <div className="steps">
+        <div className="steps" name="steps">
             <Title text="Wystarczą 4 proste kroki"></Title>
             <div className="steps__banner">
                 <div className="steps__column">
