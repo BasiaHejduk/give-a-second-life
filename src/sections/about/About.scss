@@ -17,7 +17,8 @@
 
     &__text {
         font-size: 22px;
-        padding: 20px 100px;
+        line-height: 40px;
+        padding: 20px 150px;
     }
 
     &__signature {
@@ -26,7 +27,7 @@
         background-image: url(../../assets/Signature.svg);
         background-size: cover;
         align-self: flex-end;
-        margin-right: 100px;
+        margin-right: 150px;
     }
 
     &__img {

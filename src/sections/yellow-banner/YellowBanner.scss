@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 40px;
+    padding: 60px 40px;
 
     &__column {
         max-width: 300px;
@@ -16,5 +16,10 @@
         color: $brown;
         font-size: 60px;
         line-height: 60px;
+    }
+
+    &__headline {
+        padding: 20px 0;
+        font-weight: 700;
     }
 }

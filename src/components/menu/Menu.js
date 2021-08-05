@@ -1,5 +1,4 @@
 import {scroller} from "react-scroll";
-
 import './Menu.scss';
 
 const Menu = () => {
