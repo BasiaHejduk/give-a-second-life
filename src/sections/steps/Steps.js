@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Title from '../../components/title/Title';
 import './Steps.scss';
 
@@ -27,7 +28,7 @@ const Steps = () => {
                     <p className="steps__details">kurier przyjedzie w dogodnym terminie</p>
                 </div>
             </div>
-            <button className="steps__button">ODDAJ <br/> RZECZY </button>
+            <Link to="/oddaj-rzeczy"><button className="steps__button">ODDAJ <br/> RZECZY </button></Link>
         </div>
     )
 };

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Title from '../../components/title/Title';
 import Menu from '../../components/menu/Menu';
 import './HomeStart.scss';
@@ -11,7 +12,7 @@ const HomeStart = () => {
                 <div className="start__call-to-action">
                     <Title text={`Zacznij pomagać! Oddaj niechciane rzeczy w zaufane ręce`}></Title>
                     <div className="start__buttons">
-                        <button className="start__button">ODDAJ <br/> RZECZY</button>
+                        <Link to="/oddaj-rzeczy"><button className="start__button">ODDAJ <br/> RZECZY</button></Link>
                         <button className="start__button">ZORGANIZUJ <br/> ZBIÓRKĘ</button>
                     </div>
                 </div>
