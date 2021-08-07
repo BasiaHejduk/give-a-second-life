@@ -21,6 +21,11 @@
         padding: 15px 0;
     }
 
+    &__link {
+        text-decoration: none;
+        color: $dark-grey;
+    }
+
     &__login {
         font-size: 14px;
         padding: 10px;
