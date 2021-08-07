@@ -4,7 +4,7 @@ import './Help.scss';
 import HelpDetails from './HelpDetail';
 
 const Help = () => {
-    const [recipients, setRecipients] = useState("locals");
+    const [recipients, setRecipients] = useState("foundations");
 
     return (
         <div className="help" name="help">
@@ -20,7 +20,6 @@ const Help = () => {
                 komu pomagają i czego potrzebują.
             </p>
             <HelpDetails recipients={recipients}/>
-            {/* <Pagination/> */}
         </div>
     )
 };

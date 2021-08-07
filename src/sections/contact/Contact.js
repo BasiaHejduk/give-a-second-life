@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Title from '../../components/title/Title';
 import { API_URL } from '../../common/helpers';
 import './Contact.scss';
@@ -11,37 +11,28 @@ const Contact = () => {
     const [emailValidate, setEmailValidate] = useState(true);
     const [messageValidate, setMessageValidate] = useState(true);
     const [formValidate, setFormValidate] = useState(false);
+    
+    useEffect(() => {
+        if (nameValidate === true && emailValidate === true && messageValidate === true 
+            && name.length > 0 && email.length > 0 && message.length > 0) {
+            setFormValidate(true);
+        } else {setFormValidate(false)};
+    },[name, email, message, nameValidate, emailValidate, messageValidate])
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const nameInput = document.querySelector("#name");
-        const emailInput = document.querySelector("#email");
-        const messageInput = document.querySelector("#message");
+
         if (name.includes(" ") || name.length === 0) {
             setNameValidate(false);
-            nameInput.classList.add("contact__input-alert");
-        } else {
-            setNameValidate(true);
-            nameInput.classList.remove("contact__input-alert");
-        };
+        } else {setNameValidate(true)};
         if (!email.includes("@")) {
             setEmailValidate(false);
-            emailInput.classList.add("contact__input-alert");
-        } else {
-            setEmailValidate(true);
-            emailInput.classList.remove("contact__input-alert");
-        }
+        } else {setEmailValidate(true)}
         if (message.length < 120) {
             setMessageValidate(false);
-            messageInput.classList.add("contact__input-alert");
-        } else {
-            setMessageValidate(true);
-            messageInput.classList.remove("contact__input-alert");
-        }
-        if (nameValidate === true && emailValidate === true && messageValidate === true 
-            && nameInput.value.length > 0 && emailInput.value.length > 0 && messageInput.value.length > 0) {
+        } else {setMessageValidate(true)}
+        if (formValidate) {
             console.log("Formularz wysłany");
-            setFormValidate(true);
             const newContact = {
                 name: name,
                 email: email,
@@ -61,10 +52,11 @@ const Contact = () => {
                 .catch(error => {
                   console.log(error);
                 });
-            document.querySelector("form").reset();
+            setName("");
+            setEmail("");
+            setMessage("");
         } else {
             console.log("Formularz odrzucony");
-            setFormValidate(false);
         }
     }
 
@@ -79,7 +71,8 @@ const Contact = () => {
                         <div className="contact__input-wrapper">
                             <label className="contact__form-label">Wpisz swoje imię</label>
                             <input 
-                                className="contact__form-input"
+                                value={name}
+                                className={nameValidate ? "contact__form-input" : "contact__form-input contact__input-alert"}
                                 id="name"
                                 type="text" 
                                 placeholder="Krzysztof"
@@ -90,7 +83,8 @@ const Contact = () => {
                         <div className="contact__input-wrapper">
                             <label className="contact__form-label">Wpisz swój email</label>
                             <input 
-                                className="contact__form-input"
+                                value={email}
+                                className={emailValidate ? "contact__form-input" : "contact__form-input contact__input-alert"}
                                 id="email"
                                 type="mail" 
                                 placeholder="abc@xyz.pl"
@@ -102,7 +96,8 @@ const Contact = () => {
                     <div className="contact__input-wrapper">
                         <label className="contact__form-label">Wpisz swoją wiadomość</label>
                         <textarea 
-                            className="contact__form-input contact__form-input--msg"
+                            value={message}
+                            className={messageValidate ? "contact__form-input contact__form-input--msg" : "contact__form-input contact__form-input--msg contact__input-alert"}
                             id="message"
                             placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
