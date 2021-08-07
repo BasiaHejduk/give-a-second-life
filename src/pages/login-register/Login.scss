@@ -58,4 +58,14 @@
             border: 1px solid $dark-grey;
         }
     }
+
+    &__form-alert {
+        color: red;
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    &__input-alert {
+        border-bottom: 2px solid red;
+    }
 }
