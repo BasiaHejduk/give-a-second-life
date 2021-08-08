@@ -1,20 +1,15 @@
 import YellowBar from "../yellow-bar-form/YellowBar";
 import './Form.scss';
 
-const Step3 = () => {
+const Step3 = (props) => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
         console.log("Submit");
     }
 
-    const nextStep = () => {
-        console.log("Następny krok")
-    }
-
-    const previousStep = () => {
-        console.log("Wstecz");
-    }
+    const nextStep = () => {props.update(4)};
+    const previousStep = () => {props.update(2)};
 
     return (
         <>

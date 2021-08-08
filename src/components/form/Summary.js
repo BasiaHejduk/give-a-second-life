@@ -1,6 +1,6 @@
 import './Form.scss';
 
-const Summary = () => {
+const Summary = ({update, giftChoiceState, bagsState}) => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -8,9 +8,8 @@ const Summary = () => {
         
     }
 
-    const nextStep = () => {
-        console.log("Następny krok")
-    }
+    const nextStep = () => {update(6)};
+    const previousStep = () => {update(4)};
 
     return (
     <>
@@ -19,7 +18,7 @@ const Summary = () => {
             <p className="form__tagline">Oddajesz:</p>
             <div className="form__summary-wrapper">
                 <div className="form__summary-icon form__summary-icon--gifts"></div>
-                <p className="form__summary-text">4 worki, ubrania w dobrym stanie, dzieciom</p>
+                <p className="form__summary-text">{`${giftChoiceState}, ${bagsState} worków`}</p>
             </div>
             <div className="form__summary-wrapper">
                 <div className="form__summary-icon form__summary-icon--local"></div>
@@ -63,7 +62,8 @@ const Summary = () => {
                     </div>
                 </div>
                 <div className="form__buttons-wrapper">
-                    <button className="form__button" type="submit" onClick={nextStep}>Dalej</button>
+                    <button className="form__button" onClick={previousStep}>Wstecz</button>
+                    <button className="form__button" type="submit" onClick={nextStep}>Potwierdzam</button>
                 </div>
             </form>
         </div>

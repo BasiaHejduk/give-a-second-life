@@ -1,7 +1,7 @@
 import YellowBar from "../yellow-bar-form/YellowBar";
 import './Form.scss';
 
-const Step4 = () => {
+const Step4 = (props) => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -9,9 +9,8 @@ const Step4 = () => {
         
     }
 
-    const nextStep = () => {
-        console.log("Następny krok")
-    }
+    const nextStep = () => {props.update(5)};
+    const previousStep = () => {props.update(3)};
 
     return (
     <>
@@ -25,39 +24,40 @@ const Step4 = () => {
                         <p className="form__tagline">Adres odbioru:</p>
                         <div className="form__input-wrapper form__input-wrapper--step4">
                             <label className="form__label">Ulica</label>
-                            <input className="form__input-text form__input-text--step4" type="text" value="street"></input>
+                            <input className="form__input-text form__input-text--step4" type="text"></input>
                         </div>
                         <div className="form__input-wrapper form__input-wrapper--step4">
                             <label className="form__label">Miasto</label>
-                            <input className="form__input-text form__input-text--step4" type="text" value="city"></input>
+                            <input className="form__input-text form__input-text--step4" type="text"></input>
                         </div>
                         <div className="form__input-wrapper form__input-wrapper--step4">
                             <label className="form__label">Kod <br/> pocztowy</label>
-                            <input className="form__input-text form__input-text--step4" type="text" value="post-code"></input>
+                            <input className="form__input-text form__input-text--step4" type="text"></input>
                         </div>
                         <div className="form__input-wrapper form__input-wrapper--step4">
                             <label className="form__label">Numer <br/> telefonu</label>
-                            <input className="form__input-text form__input-text--step4" type="text" value="phone-number"></input>
+                            <input className="form__input-text form__input-text--step4" type="text"></input>
                         </div>
                     </div>
                     <div className="form__content form__content--step4">
                         <p className="form__tagline">Termin odbioru:</p>
                         <div className="form__input-wrapper form__input-wrapper--step4">
                             <label className="form__label">Data</label>
-                            <input className="form__input-text form__input-text--step4" type="text" value="date"></input>
+                            <input className="form__input-text form__input-text--step4" type="text"></input>
                         </div>
                         <div className="form__input-wrapper form__input-wrapper--step4">
                             <label className="form__label">Godzina</label>
-                            <input className="form__input-text form__input-text--step4" type="text" value="hour"></input>
+                            <input className="form__input-text form__input-text--step4" type="text"></input>
                         </div>
                         <div className="form__input-wrapper form__input-wrapper--step4">
                             <label className="form__label">Uwagi <br/> dla kuriera</label>
                             <textarea className="form__input-text form__input-text--step4 form__input-text--textarea" 
-                                        type="textarea" value="remarks"></textarea>
+                                        type="textarea"></textarea>
                         </div>
                     </div>
                 </div>
                 <div className="form__buttons-wrapper">
+                    <button className="form__button" onClick={previousStep}>Wstecz</button>
                     <button className="form__button" type="submit" onClick={nextStep}>Dalej</button>
                 </div>
             </form>

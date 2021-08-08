@@ -1,7 +1,9 @@
+import { useState } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
 import './Form.scss';
 
-const Step2 = () => {
+const Step2 = ({update, updateBagsState}) => {
+    const [bagsNumber, setBagsNumber] = useState("");
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -9,12 +11,10 @@ const Step2 = () => {
     }
 
     const nextStep = () => {
-        console.log("Następny krok")
-    }
-
-    const previousStep = () => {
-        console.log("Wstecz");
-    }
+        update(3);
+        updateBagsState(bagsNumber);
+    };
+    const previousStep = () => {update(1)};
 
     return (
         <>
@@ -27,7 +27,8 @@ const Step2 = () => {
                     <div className="form__content">
                         <div className="form__input-wrapper">
                             <label className="form__label">60l worków:</label>
-                            <select className="form__select form__select--bags" name="bags">
+                            <select className="form__select form__select--bags" name="bags" 
+                                    value={bagsNumber} onChange={(e) => setBagsNumber(e.target.value)}>
                                 <option className="form__option" value="">--wybierz--</option>
                                 <option className="form__option" value="1">1</option>
                                 <option className="form__option" value="2">2</option>
