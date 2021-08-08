@@ -1,14 +1,15 @@
 import MenuLoggedIn from '../components/menu/MenuLoggedIn';
 import Contact from '../sections/contact/Contact';
 import FormStart from '../sections/form-start/FormStart';
-import Form from '../sections/form/Form';
+import FormWrapper from '../sections/form-wrapper/FormWrapper';
 
 const FormPage = () => {
+    // window.scrollTo(0, 0);
     return (
         <>
             <MenuLoggedIn/>
             <FormStart/>
-            <Form/>
+            <FormWrapper/>
             <Contact/>
         </>
     )

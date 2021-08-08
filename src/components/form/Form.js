@@ -2,9 +2,7 @@ import './Form.scss';
 
 const Form = () => {
     return (
-        <div className="form">
-            TU BĘDZIE FORMULARZ
-        </div>
+        <div className="form"></div>
     )
 };
 
