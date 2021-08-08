@@ -1,7 +1,7 @@
+import Form from '../components/form/Form';
 import MenuLoggedIn from '../components/menu/MenuLoggedIn';
 import Contact from '../sections/contact/Contact';
 import FormStart from '../sections/form-start/FormStart';
-import FormWrapper from '../sections/form-wrapper/FormWrapper';
 
 const FormPage = () => {
     // window.scrollTo(0, 0);
@@ -9,7 +9,7 @@ const FormPage = () => {
         <>
             <MenuLoggedIn/>
             <FormStart/>
-            <FormWrapper/>
+            <Form/>
             <Contact/>
         </>
     )

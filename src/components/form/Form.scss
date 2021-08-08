@@ -1,6 +1,170 @@
 @import '../../common/constants.scss';
 
 .form {
-    height: 600px;
-    background-color: $light-grey;
+    height: 750px;
+    background-image: url(../../assets/Background-Form.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 50px 100px;
+
+    &__step {
+        font-size: 20px;
+        padding-bottom: 70px;
+    }
+
+    &__headline {
+        font-size: 28px;
+        padding-bottom: 20px;
+    }
+
+    &__tagline {
+        font-size: 20px;
+        font-weight: 700;
+        padding: 20px 0 10px 0;
+    }
+
+    &__form {
+        height: 100%;
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &--step4 {
+            width: 340px;
+        }
+    }
+
+    &__content-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__input-wrapper {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        &--step3 {
+            padding: 0;
+        }
+        &--step4 {
+            justify-content: space-between;
+        }
+    }
+
+    &__checkbox-wrapper {
+        width: 100%;
+        display: flex;
+    }
+
+    &__input-radio {
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+    }
+
+    &__input-text {
+        background: inherit;
+        border: 1px solid $dark-grey;
+        height: 40px;
+        width: 100%;
+        &--step4 {
+            width: 200px;
+            margin-left: 20px;
+        }
+        &--textarea {
+            height: 100px;
+        }
+    }
+
+    &__label {
+        font-size: 20px;
+        text-align: start;
+        &--checkbox {
+            margin-right: 20px;
+        }
+    }
+
+    &__checkbox {
+        margin-right: 10px;
+        height: 20px;
+        width: 20px;
+    }
+
+    &__select {
+        background-color: inherit;
+        height: 40px;
+        width: 150px;
+        &--bags {
+            margin-left: 15px;
+        }
+    }
+
+    &__option {
+        font-size: 16px;
+        background-color: $light-grey;
+        border: 1px solid $dark-grey;
+    }
+
+    &__buttons-wrapper {
+        width: 400px;
+        justify-self: end;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__button {
+        height: 80px;
+        width: 180px;
+        font-size: 20px;
+        background-color: inherit;
+        border: 1px solid $dark-grey;
+        cursor: pointer;
+    }
+
+    &__summary-wrapper {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__summary-icon {
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+        &--gifts {
+            background-image: url(../../assets/Icon-1.png);
+        }
+        &--local {
+            background-image: url(../../assets/Icon-4.png);
+        }
+    }
+
+    &__summary-text {
+        min-width: 200px;
+        font-size: 20px;
+        margin-left: 20px;
+        text-align: start;
+    }
+
+    &__thanks-title {
+        height: 100%;
+        width: 500px;
+        display: flex;
+        align-items: center;
+        margin-left: 200px;
+    }
 }
