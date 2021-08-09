@@ -4,6 +4,7 @@ import './Form.scss';
 
 const Step2 = ({update, updateBagsState}) => {
     const [bagsNumber, setBagsNumber] = useState("");
+    const [step2Validate, setStep2Validate] = useState(true);
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -11,8 +12,12 @@ const Step2 = ({update, updateBagsState}) => {
     }
 
     const nextStep = () => {
-        update(3);
-        updateBagsState(bagsNumber);
+        if (bagsNumber === "") {
+            setStep2Validate(false);
+        } else {
+            update(3);
+            updateBagsState(bagsNumber);
+        }
     };
     const previousStep = () => {update(1)};
 
@@ -38,6 +43,7 @@ const Step2 = ({update, updateBagsState}) => {
                             </select>
                         </div>
                     </div>
+                    {step2Validate ? <p></p> : <p className="form__alert">Wybierz ile worków masz do oddania</p>}
                     <div className="form__buttons-wrapper">
                         <button className="form__button" onClick={previousStep}>Wstecz</button>
                         <button className="form__button" type="submit" onClick={nextStep}>Dalej</button>

@@ -4,6 +4,7 @@ import './Form.scss';
 
 const Step1 = ({update, updateGiftState}) => {
     const [giftChoice, setGiftChoice] = useState("");
+    const [step1Validate, setStep1Validate] = useState(true);
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -11,8 +12,12 @@ const Step1 = ({update, updateGiftState}) => {
     }
 
     const nextStep = () => {
-        update(2);
-        updateGiftState(giftChoice);
+        if (giftChoice === "") {
+            setStep1Validate(false);
+        } else {
+            update(2);
+            updateGiftState(giftChoice);
+        }
     };
 
     return (
@@ -55,6 +60,7 @@ const Step1 = ({update, updateGiftState}) => {
                         <label className="form__label">inne</label>
                     </div>
                 </div>
+                {step1Validate ? <p></p> : <p className="form__alert">Zaznacz jakie rzeczy chcesz oddać</p>}
                 <div className="form__buttons-wrapper">
                     <button className="form__button" type="submit" onClick={nextStep}>Dalej</button>
                 </div>
