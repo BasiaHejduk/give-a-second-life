@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Title from '../../components/title/Title';
 import './Steps.scss';
 
-const Steps = () => {
+const Steps = ({user}) => {
     return (
         <div className="steps" name="steps">
             <Title text="Wystarczą 4 proste kroki"></Title>
@@ -28,7 +28,9 @@ const Steps = () => {
                     <p className="steps__details">kurier przyjedzie w dogodnym terminie</p>
                 </div>
             </div>
-            <Link to="/oddaj-rzeczy"><button className="steps__button">ODDAJ <br/> RZECZY </button></Link>
+            <Link to= {user ? "/oddaj-rzeczy" : "/logowanie"}>
+                <button className="steps__button">ODDAJ <br/> RZECZY </button>
+            </Link>
         </div>
     )
 };

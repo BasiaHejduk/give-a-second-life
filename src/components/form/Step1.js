@@ -2,18 +2,17 @@ import { useState } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
 import './Form.scss';
 
-const Step1 = ({update, updateGiftState, giftChoiceState}) => {
+const Step1 = ({updateStep, updateGiftState, giftChoiceState}) => {
     const [giftChoice, setGiftChoice] = useState(giftChoiceState);
     const [step1Validate, setStep1Validate] = useState(true);
     const handleFormSubmit = (e) => {
-        e.preventDefault();
-        console.log("Submit");    
+        e.preventDefault();  
     }
     const nextStep = () => {
         if (giftChoice === "") {
             setStep1Validate(false);
         } else {
-            update(2);
+            updateStep(2);
             updateGiftState(giftChoice);
         }
     };
@@ -28,31 +27,36 @@ const Step1 = ({update, updateGiftState, giftChoiceState}) => {
                 <div className="form__content">
                     <div className="form__input-wrapper">
                         <input className="form__input-radio" type="radio" name="gift-choice" 
-                                onChange={()=>setGiftChoice("used-clothes")}
+                                value="used-clothes" onChange={()=>setGiftChoice("used-clothes")}
+                                checked={giftChoice === "used-clothes"}
                         ></input>
                         <label className="form__label">ubrania, które nadają się do ponownego użytku</label>
                     </div>
                     <div className="form__input-wrapper">
                         <input className="form__input-radio" type="radio" name="gift-choice" 
-                                onChange={()=>setGiftChoice("trash-clothes")}
+                                value="trash-clothes" onChange={()=>setGiftChoice("trash-clothes")}
+                                checked={giftChoice === "trash-clothes"}
                         ></input>
                         <label className="form__label">ubrania do wyrzucenia</label>
                     </div>
                     <div className="form__input-wrapper">
                         <input className="form__input-radio" type="radio" name="gift-choice" 
-                                onChange={()=>setGiftChoice("toys")}
+                                value="toys" onChange={()=>setGiftChoice("toys")}
+                                checked={giftChoice === "toys"}
                         ></input>
                         <label className="form__label">zabawki</label>
                     </div>
                     <div className="form__input-wrapper">
                         <input className="form__input-radio" type="radio" name="gift-choice" 
-                                onChange={()=>setGiftChoice("books")}
+                                value="books" onChange={()=>setGiftChoice("books")}
+                                checked={giftChoice === "books"}
                         ></input>
                         <label className="form__label">książki</label>
                     </div>
                     <div className="form__input-wrapper">
                         <input className="form__input-radio" type="radio" name="gift-choice" 
-                                onChange={()=>setGiftChoice("other")}
+                                value="other" onChange={()=>setGiftChoice("other")}
+                                checked={giftChoice === "other"}
                         ></input>
                         <label className="form__label">inne</label>
                     </div>

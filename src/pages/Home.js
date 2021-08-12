@@ -10,7 +10,7 @@ const Home = ({handleLogout, user, email}) => {
         <>
             <HomeStart handleLogout={handleLogout} user={user} email={email}/>
             <YellowBanner/>
-            <Steps/>
+            <Steps user={user}/>
             <About/>
             <Help/>
             <Contact/>

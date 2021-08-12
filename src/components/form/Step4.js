@@ -2,26 +2,26 @@ import { useState } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
 import './Form.scss';
 
-const Step4 = ({update, updateStreetState, updateCityState, updatePostCodeState, updatePhoneState, 
-                updateDateState, updateHourState, updateRemarksState}) => {
-    const [street, setStreet] = useState("");
-    const [city, setCity] = useState("");
-    const [postCode, setPostCode] = useState("");
-    const [phone, setPhone] = useState("");
-    const [date, setDate] = useState("");
-    const [hour, setHour] = useState("");
-    const [remarks, setRemarks] = useState("");
+const Step4 = ({updateStep, updateStreetState, updateCityState, updatePostCodeState, updatePhoneState, 
+                updateDateState, updateHourState, updateRemarksState, streetState, cityState, postCodeState, 
+                phoneState, dateState, hourState, remarksState}) => {
+    const [street, setStreet] = useState(streetState);
+    const [city, setCity] = useState(cityState);
+    const [postCode, setPostCode] = useState(postCodeState);
+    const [phone, setPhone] = useState(phoneState);
+    const [date, setDate] = useState(dateState);
+    const [hour, setHour] = useState(hourState);
+    const [remarks, setRemarks] = useState(remarksState);
     const [step4Validate, setStep4Validate] = useState(true);
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log("Submit");
     }
     const nextStep = () => {
         if (street === "" || city === "" || postCode === "" || phone === "" 
             || date === "" || hour === "" || remarks === "") {
             setStep4Validate(false)
         } else {
-            update(5);
+            updateStep(5);
             updateStreetState(street);
             updateCityState(city);
             updatePostCodeState(postCode);
@@ -31,7 +31,7 @@ const Step4 = ({update, updateStreetState, updateCityState, updatePostCodeState,
             updateRemarksState(remarks);
         }
     };
-    const previousStep = () => {update(3)};
+    const previousStep = () => {updateStep(3)};
     return (
     <>
         <YellowBar text={`Podaj adres oraz termin odbioru rzeczy.`}/>       

@@ -37,24 +37,25 @@ const Form = () => {
 
     let stepToRender;
     if (step === 1) {
-        stepToRender = <Step1 update={updateStep} 
+        stepToRender = <Step1 updateStep={updateStep} 
                             updateGiftState={updateGiftState}
                             giftChoiceState={giftChoiceState}
                             />};
     if (step === 2) {
-        stepToRender = <Step2 update={updateStep} 
+        stepToRender = <Step2 updateStep={updateStep} 
                             updateBagsState={updateBagsState}
                             bagsState={bagsState}
                             />};
     if (step === 3) {
-        stepToRender = <Step3 update={updateStep} 
+        stepToRender = <Step3 updateStep={updateStep} 
                             updateLocalizationState={updateLocalizationState}
                             updateToWhoState={updateToWhoState}
                             updateOrganizationState={updateOrganizationState}
                             localizationState={localizationState}
+                            toWhoState={toWhoState}
                             />};
     if (step === 4) {
-        stepToRender = <Step4 update={updateStep}
+        stepToRender = <Step4 updateStep={updateStep}
                             updateStreetState={updateStreetState}
                             updateCityState={updateCityState}
                             updatePostCodeState={updatePostCodeState}
@@ -62,9 +63,16 @@ const Form = () => {
                             updateDateState={updateDateState}
                             updateHourState={updateHourState}
                             updateRemarksState={updateRemarksState}
+                            streetState={streetState}
+                            cityState={cityState}
+                            postCodeState={postCodeState}
+                            phoneState={phoneState}
+                            dateState={dateState}
+                            hourState={hourState}
+                            remarksState={remarksState}
                             />};
     if (step === 5) {
-        stepToRender = <Summary update={updateStep} 
+        stepToRender = <Summary updateStep={updateStep} 
                             giftChoiceState={giftChoiceState}
                             bagsState={bagsState}
                             localizationState={localizationState}

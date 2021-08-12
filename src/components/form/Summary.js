@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
 import './Form.scss';
 
-const Summary = ({update, giftChoiceState, bagsState, localizationState, toWhoState, organizationState,
+const Summary = ({updateStep, giftChoiceState, bagsState, localizationState, toWhoState, organizationState,
                     streetState, cityState, postCodeState, phoneState, dateState, hourState, remarksState}) => {
     const [summaryBags, setSummaryBags] = useState("");
     const [summaryGifts, setSummaryGifts] = useState("");
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-        console.log("Submit");
-    }
+
     useEffect(() => {
         if (bagsState === "1") {setSummaryBags("1 worek")};
         if (bagsState === "2" || bagsState === "3" || bagsState === "4") {setSummaryBags(`${bagsState} worki`)};
@@ -18,9 +15,47 @@ const Summary = ({update, giftChoiceState, bagsState, localizationState, toWhoSt
         if (giftChoiceState === "toys") {setSummaryGifts("zabawki")};
         if (giftChoiceState === "books") {setSummaryGifts("książki")};
         if (giftChoiceState === "other") {setSummaryGifts("inne rzeczy")};
-    },[bagsState, giftChoiceState])
-    const nextStep = () => {update(6)};
-    const previousStep = () => {update(4)};
+    },[bagsState, giftChoiceState]);
+
+    const nextStep = () => {updateStep(6)};
+    const previousStep = () => {updateStep(4)};
+
+    const newDeclaration = {
+        giftType: giftChoiceState,
+        bagsNumber: bagsState,
+        toWho: toWhoState,
+        localization: localizationState,
+        address: {
+            street: streetState,
+            city: cityState,
+            postCode: postCodeState,
+            phone: phoneState
+        },
+        pickUpDate: {
+            date: dateState,
+            hour: hourState,
+            remarks: remarksState
+        }
+    };
+
+    const sendForm = () => {
+        nextStep();
+        // fetch("www", {
+        //     method: "POST",
+        //     body: JSON.stringify(newDeclaration),
+        //     headers: {
+        //       "Content-Type": "application/json"
+        //     }
+        //   })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //       console.log(data);
+        //     })
+        //     .catch(error => {
+        //       console.log(error);
+        //     });
+    }
+
     return (
     <>
         <div className="form">
@@ -34,7 +69,7 @@ const Summary = ({update, giftChoiceState, bagsState, localizationState, toWhoSt
                 <div className="form__summary-icon form__summary-icon--local"></div>
                 <p className="form__summary-text">dla lokalizacji: {localizationState} {organizationState}</p>
             </div>
-            <form className="form__form" onSubmit={handleFormSubmit}>
+            <div className="form__form">
                 <div className="form__content-wrapper">
                     <div className="form__content form__content--step4">
                         <p className="form__tagline">Adres odbioru:</p>
@@ -73,9 +108,9 @@ const Summary = ({update, giftChoiceState, bagsState, localizationState, toWhoSt
                 </div>
                 <div className="form__buttons-wrapper">
                     <button className="form__button" onClick={previousStep}>Wstecz</button>
-                    <button className="form__button" type="submit" onClick={nextStep}>Potwierdzam</button>
+                    <button className="form__button" type="submit" onClick={sendForm}>Potwierdzam</button>
                 </div>
-            </form>
+            </div>
         </div>
     </>
     )

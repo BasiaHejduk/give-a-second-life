@@ -13,7 +13,9 @@ const HomeStart = ({handleLogout, user, email}) => {
                 <div className="start__call-to-action">
                     <Title text={`Zacznij pomagać! Oddaj niechciane rzeczy w zaufane ręce`}></Title>
                     <div className="start__buttons">
-                        <Link to="/oddaj-rzeczy"><button className="start__button">ODDAJ <br/> RZECZY</button></Link>
+                        <Link to= {user ? "/oddaj-rzeczy" : "/logowanie"}>
+                            <button className="start__button">ODDAJ <br/> RZECZY</button>
+                        </Link>
                         <button className="start__button">ZORGANIZUJ <br/> ZBIÓRKĘ</button>
                     </div>
                 </div>

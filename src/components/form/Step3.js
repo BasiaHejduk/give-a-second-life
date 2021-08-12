@@ -2,27 +2,26 @@ import { useState } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
 import './Form.scss';
 
-const Step3 = ({update, updateLocalizationState, updateToWhoState, updateOrganizationState, localizationState}) => {
+const Step3 = ({updateStep, updateLocalizationState, updateToWhoState, updateOrganizationState, localizationState, toWhoState}) => {
     const [localization, setLocalization] = useState(localizationState);
-    const [toWho, setToWho] = useState("");
+    const [toWho, setToWho] = useState(toWhoState);
     const [organization, setOrganization] = useState("");
 
     const [step3Validate, setStep3Validate] = useState(true);
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log("Submit");
     }
     const nextStep = () => {
         if (localization === "" || toWho === "") {
             setStep3Validate(false)
         } else {
-            update(4);
+            updateStep(4);
             updateLocalizationState(localization);
             updateToWhoState(toWho);
             updateOrganizationState(organization);
         }
     };
-    const previousStep = () => {update(2)};
+    const previousStep = () => {updateStep(2)};
     return (
         <>
             <YellowBar text={`Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji
@@ -45,29 +44,39 @@ const Step3 = ({update, updateLocalizationState, updateToWhoState, updateOrganiz
                             <div className="form__checkbox-wrapper">
                                 <div className="form__input-wrapper form__input-wrapper--step3">
                                     <input className="form__checkbox" type="checkbox" name="help-type"
-                                            value="dzieciom" onChange={(e)=> setToWho(e.target.value)}></input>
+                                            value="dzieciom" onChange={(e)=> setToWho(e.target.value)}
+                                            checked={toWho === "dzieciom"}
+                                    ></input>
                                     <label className="form__label form__label--checkbox">dzieciom</label>
                                 </div>
                                 <div className="form__input-wrapper form__input-wrapper--step3">
                                     <input className="form__checkbox" type="checkbox" name="help-type"
-                                            value="samotnym matkom" onChange={(e)=> setToWho(e.target.value)}></input>
+                                            value="samotnym matkom" onChange={(e)=> setToWho(e.target.value)}
+                                            checked={toWho === "samotnym matkom"}
+                                    ></input>
                                     <label className="form__label form__label--checkbox">samotnym matkom</label>
                                 </div>
                                 <div className="form__input-wrapper form__input-wrapper--step3">
                                     <input className="form__checkbox" type="checkbox" name="help-type"
-                                            value="bezdomnym" onChange={(e)=> setToWho(e.target.value)}></input>
+                                            value="bezdomnym" onChange={(e)=> setToWho(e.target.value)}
+                                            checked={toWho === "bezdomnym"}
+                                    ></input>
                                     <label className="form__label form__label--checkbox">bezdomnym</label>
                                 </div>
                             </div>
                             <div className="form__checkbox-wrapper">
                                 <div className="form__input-wrapper form__input-wrapper--step3">
                                     <input className="form__checkbox" type="checkbox" name="help-type"
-                                            value="niepełnosprawnym" onChange={(e)=> setToWho(e.target.value)}></input>
+                                            value="niepełnosprawnym" onChange={(e)=> setToWho(e.target.value)}
+                                            checked={toWho === "niepełnosprawnym"}
+                                    ></input>
                                     <label className="form__label form__label--checkbox">niepełnosprawnym</label>
                                 </div>
                                 <div className="form__input-wrapper form__input-wrapper--step3">
                                     <input className="form__checkbox" type="checkbox" name="help-type"
-                                            value="osobom starszym" onChange={(e)=> setToWho(e.target.value)}></input>
+                                            value="osobom starszym" onChange={(e)=> setToWho(e.target.value)}
+                                            checked={toWho === "osobom starszym"}
+                                    ></input>
                                     <label className="form__label form__label--checkbox">osobom starszym</label>
                                 </div>
                             </div>
