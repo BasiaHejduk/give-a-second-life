@@ -5,10 +5,10 @@ import HomeStart from "../sections/home-start/HomeStart"
 import Steps from "../sections/steps/Steps"
 import YellowBanner from "../sections/yellow-banner/YellowBanner"
 
-const Home = () => {
+const Home = ({handleLogout, user, email}) => {
     return (
         <>
-            <HomeStart/>
+            <HomeStart handleLogout={handleLogout} user={user} email={email}/>
             <YellowBanner/>
             <Steps/>
             <About/>

@@ -12,15 +12,13 @@ const Step4 = ({update, updateStreetState, updateCityState, updatePostCodeState,
     const [hour, setHour] = useState("");
     const [remarks, setRemarks] = useState("");
     const [step4Validate, setStep4Validate] = useState(true);
-
     const handleFormSubmit = (e) => {
         e.preventDefault();
         console.log("Submit");
-        
     }
-
     const nextStep = () => {
-        if (street === "" || city === "" || postCode === "" || phone === "" || date === "" || hour === "" || remarks === "") {
+        if (street === "" || city === "" || postCode === "" || phone === "" 
+            || date === "" || hour === "" || remarks === "") {
             setStep4Validate(false)
         } else {
             update(5);
@@ -34,7 +32,6 @@ const Step4 = ({update, updateStreetState, updateCityState, updatePostCodeState,
         }
     };
     const previousStep = () => {update(3)};
-
     return (
     <>
         <YellowBar text={`Podaj adres oraz termin odbioru rzeczy.`}/>       
@@ -93,7 +90,6 @@ const Step4 = ({update, updateStreetState, updateCityState, updatePostCodeState,
             </form>
         </div>
     </>
-
     )
 };
 

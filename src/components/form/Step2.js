@@ -2,15 +2,13 @@ import { useState } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
 import './Form.scss';
 
-const Step2 = ({update, updateBagsState}) => {
-    const [bagsNumber, setBagsNumber] = useState("");
+const Step2 = ({update, updateBagsState, bagsState}) => {
+    const [bagsNumber, setBagsNumber] = useState(bagsState);
     const [step2Validate, setStep2Validate] = useState(true);
-
     const handleFormSubmit = (e) => {
         e.preventDefault();
         console.log("Submit");
     }
-
     const nextStep = () => {
         if (bagsNumber === "") {
             setStep2Validate(false);
@@ -20,7 +18,6 @@ const Step2 = ({update, updateBagsState}) => {
         }
     };
     const previousStep = () => {update(1)};
-
     return (
         <>
             <YellowBar text={`Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną

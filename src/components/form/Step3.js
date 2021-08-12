@@ -1,33 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
 import './Form.scss';
 
-const Step3 = ({update, updateLocalizationState, updateToWhoState, updateOrganizationState}) => {
-    const [localization, setLocalization] = useState("");
+const Step3 = ({update, updateLocalizationState, updateToWhoState, updateOrganizationState, localizationState}) => {
+    const [localization, setLocalization] = useState(localizationState);
     const [toWho, setToWho] = useState("");
     const [organization, setOrganization] = useState("");
-    // const [localizationValidate, setLocalizationValidate] = useState(true);
-    // const [toWhoValidate, setToWhoValidate] = useState(true);
-    const [step3Validate, setStep3Validate] = useState(true);
 
+    const [step3Validate, setStep3Validate] = useState(true);
     const handleFormSubmit = (e) => {
         e.preventDefault();
         console.log("Submit");
     }
-
-    // const checkValidation = () => {
-    //     if (localization === "") {
-    //         setLocalizationValidate(false)
-    //     } else {setLocalizationValidate(true)};
-    //     if (toWho === "") {
-    //         setToWhoValidate(false)
-    //     } else {setToWhoValidate(true)}
-    // };
-
-    // useEffect(() => {
-    //     checkValidation();
-    // },[localization, toWho])
-
     const nextStep = () => {
         if (localization === "" || toWho === "") {
             setStep3Validate(false)
@@ -39,7 +23,6 @@ const Step3 = ({update, updateLocalizationState, updateToWhoState, updateOrganiz
         }
     };
     const previousStep = () => {update(2)};
-
     return (
         <>
             <YellowBar text={`Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji
@@ -93,8 +76,6 @@ const Step3 = ({update, updateLocalizationState, updateToWhoState, updateOrganiz
                                    value={organization} onChange={(e)=> setOrganization(e.target.value)}></input>
                     </div>
                     {step3Validate ? <p></p> : <p className="form__alert">Wybierz lokalizację i komu chcesz pomóc</p>}
-                    {/* {localizationValidate ? <p></p> : <p className="form__alert">Wybierz lokalizację</p>}
-                    {toWhoValidate ? <p></p> : <p className="form__alert">Wybierz komu chcesz pomóc</p>} */}
                     <div className="form__buttons-wrapper">
                         <button className="form__button" onClick={previousStep}>Wstecz</button>
                         <button className="form__button" type="submit" onClick={nextStep}>Dalej</button>

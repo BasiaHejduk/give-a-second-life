@@ -2,15 +2,13 @@ import { useState } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
 import './Form.scss';
 
-const Step1 = ({update, updateGiftState}) => {
-    const [giftChoice, setGiftChoice] = useState("");
+const Step1 = ({update, updateGiftState, giftChoiceState}) => {
+    const [giftChoice, setGiftChoice] = useState(giftChoiceState);
     const [step1Validate, setStep1Validate] = useState(true);
-
     const handleFormSubmit = (e) => {
         e.preventDefault();
         console.log("Submit");    
     }
-
     const nextStep = () => {
         if (giftChoice === "") {
             setStep1Validate(false);
@@ -19,7 +17,6 @@ const Step1 = ({update, updateGiftState}) => {
             updateGiftState(giftChoice);
         }
     };
-
     return (
     <>
         <YellowBar text={`Uzupełnij szczegóły dotyczące Twoich rzeczy. 

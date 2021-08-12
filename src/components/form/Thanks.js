@@ -2,7 +2,6 @@ import Title from '../title/Title';
 import './Form.scss';
 
 const Thanks = () => {
-
     return (
         <>    
             <div className="form">

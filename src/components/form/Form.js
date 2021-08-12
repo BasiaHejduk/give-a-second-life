@@ -36,42 +36,50 @@ const Form = () => {
     const updateRemarksState = (remarksState) => setRemarksState(remarksState);
 
     let stepToRender;
-    if (step === 1) {stepToRender = <Step1 update={updateStep} 
-                                            updateGiftState={updateGiftState}
-                                            />};
-    if (step === 2) {stepToRender = <Step2 update={updateStep} 
-                                            updateBagsState={updateBagsState}
-                                            />};
-    if (step === 3) {stepToRender = <Step3 update={updateStep} 
-                                            updateLocalizationState={updateLocalizationState}
-                                            updateToWhoState={updateToWhoState}
-                                            updateOrganizationState={updateOrganizationState}
-                                            />};
-    if (step === 4) {stepToRender = <Step4 update={updateStep}
-                                            updateStreetState={updateStreetState}
-                                            updateCityState={updateCityState}
-                                            updatePostCodeState={updatePostCodeState}
-                                            updatePhoneState={updatePhoneState}
-                                            updateDateState={updateDateState}
-                                            updateHourState={updateHourState}
-                                            updateRemarksState={updateRemarksState}
-                                            />};
-    if (step === 5) {stepToRender = <Summary 
-                                        update={updateStep} 
-                                        giftChoiceState={giftChoiceState}
-                                        bagsState={bagsState}
-                                        localizationState={localizationState}
-                                        toWhoState={toWhoState}
-                                        organizationState={organizationState}
-                                        streetState={streetState}
-                                        cityState={cityState}
-                                        postCodeState={postCodeState}
-                                        phoneState={phoneState}
-                                        dateState={dateState}
-                                        hourState={hourState}
-                                        remarksState={remarksState}
-                                        />};
-    if (step === 6) {stepToRender = <Thanks/>};
+    if (step === 1) {
+        stepToRender = <Step1 update={updateStep} 
+                            updateGiftState={updateGiftState}
+                            giftChoiceState={giftChoiceState}
+                            />};
+    if (step === 2) {
+        stepToRender = <Step2 update={updateStep} 
+                            updateBagsState={updateBagsState}
+                            bagsState={bagsState}
+                            />};
+    if (step === 3) {
+        stepToRender = <Step3 update={updateStep} 
+                            updateLocalizationState={updateLocalizationState}
+                            updateToWhoState={updateToWhoState}
+                            updateOrganizationState={updateOrganizationState}
+                            localizationState={localizationState}
+                            />};
+    if (step === 4) {
+        stepToRender = <Step4 update={updateStep}
+                            updateStreetState={updateStreetState}
+                            updateCityState={updateCityState}
+                            updatePostCodeState={updatePostCodeState}
+                            updatePhoneState={updatePhoneState}
+                            updateDateState={updateDateState}
+                            updateHourState={updateHourState}
+                            updateRemarksState={updateRemarksState}
+                            />};
+    if (step === 5) {
+        stepToRender = <Summary update={updateStep} 
+                            giftChoiceState={giftChoiceState}
+                            bagsState={bagsState}
+                            localizationState={localizationState}
+                            toWhoState={toWhoState}
+                            organizationState={organizationState}
+                            streetState={streetState}
+                            cityState={cityState}
+                            postCodeState={postCodeState}
+                            phoneState={phoneState}
+                            dateState={dateState}
+                            hourState={hourState}
+                            remarksState={remarksState}
+                            />};
+    if (step === 6) {
+        stepToRender = <Thanks/>};
 
 
     return (

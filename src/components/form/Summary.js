@@ -5,12 +5,10 @@ const Summary = ({update, giftChoiceState, bagsState, localizationState, toWhoSt
                     streetState, cityState, postCodeState, phoneState, dateState, hourState, remarksState}) => {
     const [summaryBags, setSummaryBags] = useState("");
     const [summaryGifts, setSummaryGifts] = useState("");
-
     const handleFormSubmit = (e) => {
         e.preventDefault();
         console.log("Submit");
     }
-
     useEffect(() => {
         if (bagsState === "1") {setSummaryBags("1 worek")};
         if (bagsState === "2" || bagsState === "3" || bagsState === "4") {setSummaryBags(`${bagsState} worki`)};
@@ -21,11 +19,8 @@ const Summary = ({update, giftChoiceState, bagsState, localizationState, toWhoSt
         if (giftChoiceState === "books") {setSummaryGifts("książki")};
         if (giftChoiceState === "other") {setSummaryGifts("inne rzeczy")};
     },[bagsState, giftChoiceState])
-
-
     const nextStep = () => {update(6)};
     const previousStep = () => {update(4)};
-
     return (
     <>
         <div className="form">
@@ -83,7 +78,6 @@ const Summary = ({update, giftChoiceState, bagsState, localizationState, toWhoSt
             </form>
         </div>
     </>
-
     )
 };
 
