@@ -5,7 +5,7 @@ import Login from './pages/login-register/Login';
 import Register from './pages/login-register/Register';
 import Logout from './pages/login-register/Logout';
 import FormPage from './pages/FormPage';
-import firebase from './firebase';
+import app from './firebase'
 import './App.scss';
 
 
@@ -28,7 +28,7 @@ const App = () => {
 
   const handleLogin = () => {
     clearErrors();
-    firebase
+    app
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch(err => {
@@ -50,7 +50,7 @@ const App = () => {
 
   const handleSignUp = () => {
     clearErrors();
-    firebase
+    app
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .catch(err => {
@@ -70,11 +70,11 @@ const App = () => {
   };
 
   const handleLogout = () => {
-    firebase.auth().signOut();
+    app.auth().signOut();
   };
 
   const authListener = () => {
-    firebase.auth().onAuthStateChanged(user => {
+    app.auth().onAuthStateChanged(user => {
       if(user) {
         clearInputs();
         setUser(user);
@@ -100,6 +100,7 @@ const App = () => {
                                 user={user}
                                 />}
           />
+          {/* Redirect */}
           <Route 
             path="/logowanie" exact 
             render={(props) => <Login {...props} 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import firebase from '../../firebase';
+import app from '../../firebase';
 import './Form.scss';
 
 const Summary = ({updateStep, giftChoiceState, bagsState, localizationState, toWhoState, organizationState,
@@ -23,7 +23,7 @@ const Summary = ({updateStep, giftChoiceState, bagsState, localizationState, toW
 
     const sendForm = () => {
         nextStep();
-        firebase.firestore().collection('giftDeclarations').add({
+        app.firestore().collection('giftDeclarations').add({
             giftType: giftChoiceState,
             bagsNumber: bagsState,
             toWho: toWhoState,
