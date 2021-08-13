@@ -11,28 +11,29 @@ const Contact = () => {
     const [emailValidate, setEmailValidate] = useState(true);
     const [messageValidate, setMessageValidate] = useState(true);
     const [formValidate, setFormValidate] = useState(false);
+    const [successMessage, setSuccessMessage] = useState(false);
     
     useEffect(() => {
-        if (nameValidate === true && emailValidate === true && messageValidate === true 
-            && name.length > 0 && email.length > 0 && message.length > 0) {
+        if ( !(name.includes(" ")) && email.includes("@") 
+            && name.length > 0 && email.length > 0 && message.length >= 120) {
             setFormValidate(true);
         } else {setFormValidate(false)};
     },[name, email, message, nameValidate, emailValidate, messageValidate])
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-
         if (name.includes(" ") || name.length === 0) {
             setNameValidate(false);
         } else {setNameValidate(true)};
         if (!email.includes("@")) {
             setEmailValidate(false);
         } else {setEmailValidate(true)}
-        if (message.length < 120) {
+        if (message.length < 20) {
             setMessageValidate(false);
         } else {setMessageValidate(true)}
+
         if (formValidate) {
-            console.log("Formularz wysłany");
+            setSuccessMessage(true);
             const newContact = {
                 name: name,
                 email: email,
@@ -56,7 +57,7 @@ const Contact = () => {
             setEmail("");
             setMessage("");
         } else {
-            console.log("Formularz odrzucony");
+            setSuccessMessage(false);
         }
     }
 
@@ -65,39 +66,51 @@ const Contact = () => {
             <div className="contact__img"></div>
             <div className="contact__box">
                 <Title text="Skontaktuj się z nami"></Title>
-                {formValidate ? <p className="contact__success-msg">Wiadomość wysłana! <br/> Wkrótce się skontaktujemy.</p> : <p></p>}
+                {successMessage 
+                    ? <p className="contact__success-msg">Wiadomość wysłana! <br/> Wkrótce się skontaktujemy.</p> 
+                    : <p></p>}
                 <form className="contact__form" onSubmit={handleFormSubmit}>
                     <div className="contact__data">
                         <div className="contact__input-wrapper">
                             <label className="contact__form-label">Wpisz swoje imię</label>
                             <input 
                                 value={name}
-                                className={nameValidate ? "contact__form-input" : "contact__form-input contact__input-alert"}
+                                className={nameValidate 
+                                    ? "contact__form-input" 
+                                    : "contact__form-input contact__input-alert"}
                                 id="name"
                                 type="text" 
                                 placeholder="Krzysztof"
                                 onChange={(e)=> setName(e.target.value)}>
                             </input>
-                            {nameValidate ? <p></p> : <p className="contact__form-alert">Podane imię jest nieprawidłowe</p>}
+                            {nameValidate 
+                                ? <p></p> 
+                                : <p className="contact__form-alert">Podane imię jest nieprawidłowe</p>}
                         </div>
                         <div className="contact__input-wrapper">
                             <label className="contact__form-label">Wpisz swój email</label>
                             <input 
                                 value={email}
-                                className={emailValidate ? "contact__form-input" : "contact__form-input contact__input-alert"}
+                                className={emailValidate 
+                                    ? "contact__form-input" 
+                                    : "contact__form-input contact__input-alert"}
                                 id="email"
                                 type="mail" 
                                 placeholder="abc@xyz.pl"
                                 onChange={(e)=> setEmail(e.target.value)}>
                             </input>
-                            {emailValidate ? <p></p> : <p className="contact__form-alert">Podany email jest nieprawidłowy</p>}
+                            {emailValidate 
+                                ? <p></p> 
+                                : <p className="contact__form-alert">Podany email jest nieprawidłowy</p>}
                         </div>
                     </div>
                     <div className="contact__input-wrapper">
                         <label className="contact__form-label">Wpisz swoją wiadomość</label>
                         <textarea 
                             value={message}
-                            className={messageValidate ? "contact__form-input contact__form-input--msg" : "contact__form-input contact__form-input--msg contact__input-alert"}
+                            className={messageValidate 
+                                ? "contact__form-input contact__form-input--msg" 
+                                : "contact__form-input contact__form-input--msg contact__input-alert"}
                             id="message"
                             placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -105,7 +118,9 @@ const Contact = () => {
                             ut aliquip ex ea commodo consequat."
                             onChange={(e)=> setMessage(e.target.value)}>
                         </textarea>
-                        {messageValidate ? <p></p> : <p className="contact__form-alert">Wiadomość musi mieć co najmniej 120 znaków</p>}
+                        {messageValidate 
+                            ? <p></p> 
+                            : <p className="contact__form-alert">Wiadomość musi mieć co najmniej 120 znaków</p>}
                     </div>
                     <button className="contact__form-button" type="submit">Wyślij</button>
                 </form>

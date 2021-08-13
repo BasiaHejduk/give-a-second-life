@@ -2,7 +2,7 @@ import {scroller} from "react-scroll";
 import { Link } from 'react-router-dom';
 import './Menu.scss';
 
-const MenuLoggedIn = ({handleLogout, email}) => {
+const MenuLoggedIn = ({handleLogout, user}) => {
     const handleOnClickMenu = (where) => {
         scroller.scrollTo(where);
     };
@@ -10,7 +10,7 @@ const MenuLoggedIn = ({handleLogout, email}) => {
     return (
         <div className="menu">
             <div className="menu__login-list">
-                <p className="menu__welcome">Cześć {email}</p>
+                <p className="menu__welcome">Cześć {user.email}</p>
                 <Link to="/oddaj-rzeczy" className="menu__link"><div className="menu__login">Oddaj rzeczy</div></Link>
                 <Link to="/wylogowano" className="menu__link"><div className="menu__login" onClick={handleLogout}>Wyloguj</div></Link>
             </div>

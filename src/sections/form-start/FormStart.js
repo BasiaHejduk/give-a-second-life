@@ -1,11 +1,9 @@
-import MenuLoggedIn from '../../components/menu/MenuLoggedIn';
 import Title from '../../components/title/Title';
 import './FormStart.scss';
 
 const FormStart = () => {
     return (
         <div className="form-start">
-            <MenuLoggedIn/>
             <div className="form-start__wrapper">
                 <div className="form-start__img"></div>
                 <div className="form-start__call-to-action">

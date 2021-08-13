@@ -4,11 +4,14 @@ import Help from "../sections/help/Help"
 import HomeStart from "../sections/home-start/HomeStart"
 import Steps from "../sections/steps/Steps"
 import YellowBanner from "../sections/yellow-banner/YellowBanner"
+import Menu from "../components/menu/Menu"
+import MenuLoggedIn from "../components/menu/MenuLoggedIn"
 
-const Home = ({handleLogout, user, email}) => {
+const Home = ({handleLogout, user}) => {
     return (
         <>
-            <HomeStart handleLogout={handleLogout} user={user} email={email}/>
+            {user ? <MenuLoggedIn handleLogout={handleLogout} user={user}/> : <Menu/>}
+            <HomeStart user={user}/>
             <YellowBanner/>
             <Steps user={user}/>
             <About/>

@@ -1,3 +1,5 @@
+// import firebase from "firebase/app";
+// import 'firebase/firestore';
 import firebase from "firebase";
 
  var firebaseConfig = {
@@ -9,6 +11,6 @@ import firebase from "firebase";
     appId: "1:644480217003:web:39bfc37ed07c130a136cee"
   };
 
-  const fire = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-  export default fire;
+  export default firebase;

@@ -1,13 +1,13 @@
 import Form from '../components/form/Form';
-import MenuLoggedIn from '../components/menu/MenuLoggedIn';
 import Contact from '../sections/contact/Contact';
 import FormStart from '../sections/form-start/FormStart';
+import MenuLoggedIn from '../components/menu/MenuLoggedIn';
 
-const FormPage = () => {
+const FormPage = ({handleLogout, user}) => {
     window.scrollTo(0, 0);
     return (
         <>
-            <MenuLoggedIn/>
+            <MenuLoggedIn handleLogout={handleLogout} user={user}/>
             <FormStart/>
             <Form/>
             <Contact/>

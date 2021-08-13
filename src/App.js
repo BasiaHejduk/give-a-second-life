@@ -5,7 +5,7 @@ import Login from './pages/login-register/Login';
 import Register from './pages/login-register/Register';
 import Logout from './pages/login-register/Logout';
 import FormPage from './pages/FormPage';
-import fire from './fire';
+import firebase from './firebase';
 import './App.scss';
 
 
@@ -28,7 +28,7 @@ const App = () => {
 
   const handleLogin = () => {
     clearErrors();
-    fire
+    firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch(err => {
@@ -50,7 +50,7 @@ const App = () => {
 
   const handleSignUp = () => {
     clearErrors();
-    fire
+    firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .catch(err => {
@@ -59,7 +59,7 @@ const App = () => {
           case "auth/ivalid-email":
             setEmailError(err.message);
             break;
-          case "auth/weak-password":
+          case "auth/invalid-password":
             setPasswordError(err.message);
             break;
           default:
@@ -70,11 +70,11 @@ const App = () => {
   };
 
   const handleLogout = () => {
-    fire.auth().signOut();
+    firebase.auth().signOut();
   };
 
   const authListener = () => {
-    fire.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(user => {
       if(user) {
         clearInputs();
         setUser(user);
@@ -86,7 +86,7 @@ const App = () => {
 
   useEffect(() => {
     authListener();
-  }, []);
+  });
 
 
   return (
@@ -98,7 +98,6 @@ const App = () => {
             render={(props) => <Home {... props} 
                                 handleLogout={handleLogout}
                                 user={user}
-                                email={email}
                                 />}
           />
           <Route 
@@ -126,7 +125,13 @@ const App = () => {
                                 />}
           />
           <Route path="/wylogowano" exact component={Logout}/>
-          <Route path="/oddaj-rzeczy" exact component={FormPage}/>
+          <Route 
+            path="/oddaj-rzeczy" exact 
+            render={(props) => <FormPage {...props}
+                                handleLogout={handleLogout}
+                                user={user}
+                                />}
+          />
         </Switch>
       </Router>
     </div>

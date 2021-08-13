@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import firebase from '../../firebase';
 import './Form.scss';
 
 const Summary = ({updateStep, giftChoiceState, bagsState, localizationState, toWhoState, organizationState,
@@ -20,40 +21,21 @@ const Summary = ({updateStep, giftChoiceState, bagsState, localizationState, toW
     const nextStep = () => {updateStep(6)};
     const previousStep = () => {updateStep(4)};
 
-    const newDeclaration = {
-        giftType: giftChoiceState,
-        bagsNumber: bagsState,
-        toWho: toWhoState,
-        localization: localizationState,
-        address: {
+    const sendForm = () => {
+        nextStep();
+        firebase.firestore().collection('giftDeclarations').add({
+            giftType: giftChoiceState,
+            bagsNumber: bagsState,
+            toWho: toWhoState,
+            localization: localizationState,
             street: streetState,
             city: cityState,
             postCode: postCodeState,
-            phone: phoneState
-        },
-        pickUpDate: {
+            phone: phoneState,
             date: dateState,
             hour: hourState,
             remarks: remarksState
-        }
-    };
-
-    const sendForm = () => {
-        nextStep();
-        // fetch("www", {
-        //     method: "POST",
-        //     body: JSON.stringify(newDeclaration),
-        //     headers: {
-        //       "Content-Type": "application/json"
-        //     }
-        //   })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //       console.log(data);
-        //     })
-        //     .catch(error => {
-        //       console.log(error);
-        //     });
+        });
     }
 
     return (
