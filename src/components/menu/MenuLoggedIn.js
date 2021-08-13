@@ -16,10 +16,10 @@ const MenuLoggedIn = ({handleLogout, user}) => {
             </div>
             <ul className="menu__item-list">
                 <Link to="/" className="menu__link"><li className="menu__item" onClick={()=> handleOnClickMenu("start")}>Start</li></Link>
-                <li className="menu__item" onClick={()=> handleOnClickMenu("steps")}>O co chodzi?</li>
-                <li className="menu__item" onClick={()=> handleOnClickMenu("about")}>O nas</li>
-                <li className="menu__item" onClick={()=> handleOnClickMenu("help")}>Fundacja i organizacje</li>
-                <li className="menu__item" onClick={()=> handleOnClickMenu("contact")}>Kontakt</li>
+                <Link to="/" className="menu__link"><li className="menu__item" onClick={()=> handleOnClickMenu("steps")}>O co chodzi?</li></Link>
+                <Link to="/" className="menu__link"><li className="menu__item" onClick={()=> handleOnClickMenu("about")}>O nas</li></Link>
+                <Link to="/" className="menu__link"><li className="menu__item" onClick={()=> handleOnClickMenu("help")}>Fundacja i organizacje</li></Link>
+                <Link to="/" className="menu__link"><li className="menu__item" onClick={()=> handleOnClickMenu("contact")}>Kontakt</li></Link>
             </ul>
         </div>
     )

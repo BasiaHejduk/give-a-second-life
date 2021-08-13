@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Title from '../../components/title/Title';
-import { API_URL } from '../../common/helpers';
 import './Contact.scss';
 
 const Contact = () => {
@@ -39,7 +38,7 @@ const Contact = () => {
                 email: email,
                 message: message
             }
-            fetch(API_URL, {
+            fetch("https://fer-api.coderslab.pl/v1/portfolio/contact", {
                 method: "POST",
                 body: JSON.stringify(newContact),
                 headers: {

@@ -54,18 +54,20 @@ const App = () => {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .catch(err => {
-        switch(err.code) {
-          case "auth/email-already-in-use":
-          case "auth/ivalid-email":
-            setEmailError(err.message);
-            break;
-          case "auth/invalid-password":
-            setPasswordError(err.message);
-            break;
-          default:
-            setEmailError("");
-            setPasswordError("");
-        }
+        setEmailError(err.code);
+        setPasswordError(err.code);
+        // switch(err.code) {
+        //   case "auth/email-already-in-use":
+        //   case "auth/ivalid-email":
+        //     setEmailError(err.message);
+        //     break;
+        //   case "auth/weak-password":
+        //     setPasswordError(err.message);
+        //     break;
+        //   default:
+        //     setEmailError("");
+        //     setPasswordError("");
+        // }
       })
   };
 
@@ -111,6 +113,7 @@ const App = () => {
                                 handleLogin={handleLogin}
                                 emailError={emailError}
                                 passwordError={passwordError}
+                                user={user}
                                 />}
           />
           <Route 
@@ -123,6 +126,7 @@ const App = () => {
                                 handleSignUp={handleSignUp}
                                 emailError={emailError}
                                 passwordError={passwordError}
+                                user={user}
                                 />}
           />
           <Route path="/wylogowano" exact component={Logout}/>

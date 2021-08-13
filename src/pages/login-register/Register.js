@@ -1,14 +1,22 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import Menu from '../../components/menu/Menu';
 import Title from '../../components/title/Title';
 import './Login.scss';
 
-const Register = ({email, setEmail, password, setPassword, handleSignUp, emailError, passwordError}) => {
+const Register = ({email, setEmail, password, setPassword, handleSignUp, emailError, passwordError, user}) => {
+    let history = useHistory();
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
         handleSignUp();
     }
+
+    useEffect(() => {
+        if (user) {
+            history.push("/oddaj-rzeczy")
+        }
+    }, [user]);
 
     return (
         <div className="login">
