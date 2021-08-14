@@ -15,10 +15,16 @@
         justify-content: center;
     }
 
+    &__info-wrapper {
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+    }
+
     &__text {
         font-size: 22px;
         line-height: 40px;
-        padding: 20px 150px;
+        padding: 20px 0;
     }
 
     &__signature {
@@ -27,7 +33,6 @@
         background-image: url(../../assets/Signature.svg);
         background-size: cover;
         align-self: flex-end;
-        margin-right: 150px;
     }
 
     &__img {

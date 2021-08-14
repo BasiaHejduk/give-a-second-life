@@ -5,6 +5,7 @@ import './Form.scss';
 const Step1 = ({updateStep, updateGiftState, giftChoiceState}) => {
     const [giftChoice, setGiftChoice] = useState(giftChoiceState);
     const [step1Validate, setStep1Validate] = useState(true);
+    
     const handleFormSubmit = (e) => {
         e.preventDefault();  
     }
@@ -16,6 +17,7 @@ const Step1 = ({updateStep, updateGiftState, giftChoiceState}) => {
             updateGiftState(giftChoice);
         }
     };
+    
     return (
     <>
         <YellowBar text={`Uzupełnij szczegóły dotyczące Twoich rzeczy. 

@@ -26,21 +26,21 @@ export const foundations = [
         type: "Fundacja",
         name: "Numer 4",
         mission: "Pomoc osobom znajdującym się w trudnej sytuacji życiowej",
-        gifts: "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+        gifts: "ubrania, jedzenie, ciepłe koce"
     },
     {
         id: 5,
         type: "Fundacja",
         name: "Numer 5",
         mission: "Pomoc dzieciom z ubogich rodzin",
-        gifts: "ubrania, meble, zabawki"
+        gifts: "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
     },
     {
         id: 6,
         type: "Fundacja",
         name: "Numer 6",
         mission: "Pomoc dla osób nieposiadających miejsca zamieszkania",
-        gifts: "ubrania, jedzenie, ciepłe koce"
+        gifts: "ubrania, meble, zabawki"
     },
     {
         id: 7,
@@ -133,13 +133,3 @@ export const locals = [
         gifts: "quis nostrud exercitation"
     }
 ]
-
-
-
-
-// Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-//sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-//Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-//nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-//reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-//Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

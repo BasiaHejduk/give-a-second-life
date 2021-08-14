@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import app from '../../firebase';
+import fire from '../../firebase';
 import './Form.scss';
 
 const Summary = ({updateStep, giftChoiceState, bagsState, localizationState, toWhoState, organizationState,
@@ -20,10 +20,9 @@ const Summary = ({updateStep, giftChoiceState, bagsState, localizationState, toW
 
     const nextStep = () => {updateStep(6)};
     const previousStep = () => {updateStep(4)};
-
     const sendForm = () => {
         nextStep();
-        app.firestore().collection('giftDeclarations').add({
+        fire.firestore().collection('giftDeclarations').add({
             giftType: giftChoiceState,
             bagsNumber: bagsState,
             toWho: toWhoState,
@@ -40,7 +39,7 @@ const Summary = ({updateStep, giftChoiceState, bagsState, localizationState, toW
 
     return (
     <>
-        <div className="form">
+        <div className="form form__summary">
             <h3 className="form__headline">Podsumowanie Twojej darowizny</h3>
             <p className="form__tagline">Oddajesz:</p>
             <div className="form__summary-wrapper">

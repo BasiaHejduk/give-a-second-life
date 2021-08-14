@@ -4,7 +4,7 @@ import Menu from '../../components/menu/Menu';
 import Title from '../../components/title/Title';
 import './Login.scss';
 
-const Login = ({email, setEmail, password, setPassword, handleLogin, emailError, passwordError, user}) => {
+const Login = ({email, setEmail, password, setPassword, handleLogin, authError, user}) => {
     let history = useHistory();
 
     const handleFormSubmit = (e) => {
@@ -16,7 +16,7 @@ const Login = ({email, setEmail, password, setPassword, handleLogin, emailError,
         if (user) {
             history.push("/oddaj-rzeczy")
         }
-    }, [user]);
+    }, [user, history]);
 
     return (
         <div className="login">
@@ -33,7 +33,6 @@ const Login = ({email, setEmail, password, setPassword, handleLogin, emailError,
                             required
                             onChange={(e)=> setEmail(e.target.value)}>
                         </input>
-                        <p className="login__form-alert">{emailError}</p>
                         <label className="login__label">Hasło</label>
                         <input 
                             value={password}
@@ -42,7 +41,7 @@ const Login = ({email, setEmail, password, setPassword, handleLogin, emailError,
                             required
                             onChange={(e)=> setPassword(e.target.value)}>
                         </input>
-                        <p className="login__form-alert">{passwordError}</p>
+                        {authError ? <p className="login__form-alert">Błędny email lub hasło</p> : <p></p>}
                     </div>
                     <div className="login__buttons">
                         <Link to="/rejestracja"><button className="login__button">Załóż konto</button></Link>

@@ -1,22 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Menu from '../../components/menu/Menu';
 import Title from '../../components/title/Title';
 import './Login.scss';
 
-const Register = ({email, setEmail, password, setPassword, handleSignUp, emailError, passwordError, user}) => {
+const Register = ({email, setEmail, password, setPassword, handleSignUp, authError, user}) => {
+    const [firstPassword, setFirstPassword] = useState("");
+    const [differentPasswords, setDifferentPasswords] = useState(false);
     let history = useHistory();
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        handleSignUp();
+        if (firstPassword === password) {
+            setDifferentPasswords(false);
+            handleSignUp();
+        } else {
+            setDifferentPasswords(true);
+        }
     }
 
     useEffect(() => {
         if (user) {
             history.push("/oddaj-rzeczy")
         }
-    }, [user]);
+    }, [user, history]);
 
     return (
         <div className="login">
@@ -33,17 +40,15 @@ const Register = ({email, setEmail, password, setPassword, handleSignUp, emailEr
                             required
                             onChange={(e)=> setEmail(e.target.value)}>
                         </input>
-                        <p className="login__form-alert">{emailError}</p>
                         <label className="login__label">Hasło</label>
                         <input 
-                            value={password}
+                            value={firstPassword}
                             className="login__input"
                             type="password" 
                             required
-                            onChange={(e)=> setPassword(e.target.value)}>
+                            onChange={(e)=> setFirstPassword(e.target.value)}>
                         </input>
-                        <p className="login__form-alert">{passwordError}</p>
-                        {/* <label className="login__label">Powtórz</label>
+                        <label className="login__label">Powtórz hasło</label>
                         <input 
                             value={password}
                             className="login__input"
@@ -51,7 +56,8 @@ const Register = ({email, setEmail, password, setPassword, handleSignUp, emailEr
                             required
                             onChange={(e)=> setPassword(e.target.value)}>
                         </input>
-                        <p className="login__form-alert">{passwordError}</p> */}
+                        {differentPasswords ? <p className="login__form-alert">Hasła są różne</p> : <p></p>}
+                        {authError ? <p className="login__form-alert">Błędny email lub za krótkie hasło (min. 6 znaków)</p> : <p></p>}
                     </div>
                     <div className="login__buttons">
                         <Link to="/logowanie"><button className="login__button">Zaloguj się</button></Link>

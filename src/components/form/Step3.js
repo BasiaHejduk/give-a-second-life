@@ -6,8 +6,8 @@ const Step3 = ({updateStep, updateLocalizationState, updateToWhoState, updateOrg
     const [localization, setLocalization] = useState(localizationState);
     const [toWho, setToWho] = useState(toWhoState);
     const [organization, setOrganization] = useState("");
-
     const [step3Validate, setStep3Validate] = useState(true);
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
     }
@@ -22,6 +22,7 @@ const Step3 = ({updateStep, updateLocalizationState, updateToWhoState, updateOrg
         }
     };
     const previousStep = () => {updateStep(2)};
+    
     return (
         <>
             <YellowBar text={`Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji

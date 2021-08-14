@@ -89,7 +89,6 @@ const Form = () => {
     if (step === 6) {
         stepToRender = <Thanks/>};
 
-
     return (
         <>
             {stepToRender}

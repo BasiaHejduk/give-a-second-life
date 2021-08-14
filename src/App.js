@@ -5,78 +5,45 @@ import Login from './pages/login-register/Login';
 import Register from './pages/login-register/Register';
 import Logout from './pages/login-register/Logout';
 import FormPage from './pages/FormPage';
-import app from './firebase'
+import fire from './firebase'
 import './App.scss';
-
 
 const App = () => {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [authError, setAuthError] = useState(false);
 
   const clearInputs = () => {
     setEmail("");
     setPassword("");
   };
-
   const clearErrors = () => {
-    setEmailError("");
-    setPasswordError("");
+    setAuthError(false);
   };
-
   const handleLogin = () => {
     clearErrors();
-    app
+    fire
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch(err => {
-        switch(err.code) {
-          case "auth/invalid-email":
-          case "auth/user-disabled":
-          case "auth/user-not-found":
-            setEmailError(err.message);
-            break;
-          case "auth/wrong-password":
-            setPasswordError(err.message);
-            break;
-          default: 
-            setEmailError("");
-            setPasswordError("");
-        }
+        if (err) {setAuthError(true)}
       })
   };
-
   const handleSignUp = () => {
     clearErrors();
-    app
+    fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .catch(err => {
-        setEmailError(err.code);
-        setPasswordError(err.code);
-        // switch(err.code) {
-        //   case "auth/email-already-in-use":
-        //   case "auth/ivalid-email":
-        //     setEmailError(err.message);
-        //     break;
-        //   case "auth/weak-password":
-        //     setPasswordError(err.message);
-        //     break;
-        //   default:
-        //     setEmailError("");
-        //     setPasswordError("");
-        // }
+        if (err) {setAuthError(true)}
       })
   };
-
   const handleLogout = () => {
-    app.auth().signOut();
+    fire.auth().signOut();
   };
-
   const authListener = () => {
-    app.auth().onAuthStateChanged(user => {
+    fire.auth().onAuthStateChanged(user => {
       if(user) {
         clearInputs();
         setUser(user);
@@ -85,11 +52,9 @@ const App = () => {
       }
     })
   };
-
   useEffect(() => {
     authListener();
   });
-
 
   return (
     <div className="App">
@@ -102,7 +67,6 @@ const App = () => {
                                 user={user}
                                 />}
           />
-          {/* Redirect */}
           <Route 
             path="/logowanie" exact 
             render={(props) => <Login {...props} 
@@ -111,8 +75,7 @@ const App = () => {
                                 password={password}
                                 setPassword={setPassword}
                                 handleLogin={handleLogin}
-                                emailError={emailError}
-                                passwordError={passwordError}
+                                authError={authError}
                                 user={user}
                                 />}
           />
@@ -124,8 +87,7 @@ const App = () => {
                                 password={password}
                                 setPassword={setPassword}
                                 handleSignUp={handleSignUp}
-                                emailError={emailError}
-                                passwordError={passwordError}
+                                authError={authError}
                                 user={user}
                                 />}
           />

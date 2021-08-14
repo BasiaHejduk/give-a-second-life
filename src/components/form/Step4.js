@@ -13,6 +13,7 @@ const Step4 = ({updateStep, updateStreetState, updateCityState, updatePostCodeSt
     const [hour, setHour] = useState(hourState);
     const [remarks, setRemarks] = useState(remarksState);
     const [step4Validate, setStep4Validate] = useState(true);
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
     }
@@ -32,6 +33,7 @@ const Step4 = ({updateStep, updateStreetState, updateCityState, updatePostCodeSt
         }
     };
     const previousStep = () => {updateStep(3)};
+    
     return (
     <>
         <YellowBar text={`Podaj adres oraz termin odbioru rzeczy.`}/>       

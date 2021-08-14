@@ -30,7 +30,6 @@ const Contact = () => {
         if (message.length < 20) {
             setMessageValidate(false);
         } else {setMessageValidate(true)}
-
         if (formValidate) {
             setSuccessMessage(true);
             const newContact = {

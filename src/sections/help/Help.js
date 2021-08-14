@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Title from '../../components/title/Title';
-import './Help.scss';
 import HelpDetails from './HelpDetail';
+import './Help.scss';
 
 const Help = () => {
     const [recipients, setRecipients] = useState("foundations");

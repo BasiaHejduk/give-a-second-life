@@ -4,8 +4,6 @@ import Title from '../../components/title/Title';
 import './Login.scss';
 
 const Logout = () => {
-
-
     return(
         <div className="login">
             <Menu></Menu>

@@ -2,24 +2,26 @@
 
 .contact {
     width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     position: relative;
 
     &__img {
-        width: 100%;
+        width: 90%;
         height: 100%;
         background-image: url(../../assets/Background-Image.png);
         background-size: cover;
-        opacity: 0.3;
+        opacity: 0.2;
         position: absolute;
+        left: 0;
     }
 
     &__box {
         position: relative;
         margin-right: 140px;
-        width: 30vw;
+        width: 35vw;
         padding: 50px 0;
     }
 
@@ -49,7 +51,7 @@
     &__form-input {
         border: none;
         border-bottom: 2px solid $dark-grey;
-        width: 200px;
+        width: 15vw;
         margin: 10px 0;
         padding-top: 10px;
         font-size: 16px;

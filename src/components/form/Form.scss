@@ -1,7 +1,7 @@
 @import '../../common/constants.scss';
 
 .form {
-    height: 750px;
+    height: 90vh;
     background-image: url(../../assets/Background-Form.png);
     background-size: cover;
     display: flex;
@@ -10,9 +10,13 @@
     align-items: flex-start;
     padding: 50px 100px;
 
+    &__summary {
+        height: 100vh;
+    }
+
     &__step {
         font-size: 20px;
-        padding-bottom: 70px;
+        padding-bottom: 50px;
     }
 
     &__headline {

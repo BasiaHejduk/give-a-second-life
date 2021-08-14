@@ -1,7 +1,7 @@
 @import '../../common/constants.scss';
 
 .form-start {
-    height: 650px;
+    height: 80vh;
 
     &__wrapper {
         height: 100%;
@@ -11,8 +11,8 @@
     }
 
     &__img {
-        width: 800px;
-        height: 650px;
+        width: 50vw;
+        height: 80vh;
         background-image: url(../../assets/Header-Form-Background.png);
         background-size: cover;
         position: absolute;

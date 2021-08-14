@@ -1,7 +1,7 @@
 @import '../../common/constants.scss';
 
 .start {
-    height: 650px;
+    height: 100vh;
     
     &__wrapper {
         height: 100%;
@@ -11,19 +11,19 @@
     }
 
     &__img {
-        width: 900px;
-        height: 650px;
+        width: 70vw;
+        height: 100vh;
         background-image: url(../../assets/Hero-Image.png);
-        background-size: cover;
+        background-size: contain;
         position: absolute;
         top: 0;
-        left: -300px;
+        left: -440px;
     }
 
     &__call-to-action {
         position: relative;
         max-width: 600px;
-        margin-right: 250px;
+        margin-right: 275px;
         margin-top: 40px;
         display: flex;
         flex-direction: column;
