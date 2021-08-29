@@ -5,6 +5,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: $mobile) {
+        margin: 20px 0;
+    }
 
     &__recipients-list {
         width: 600px;
@@ -13,15 +16,31 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px 0;
+        @media (max-width: $mobile) {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     }
 
     &__recipient {
         font-size: 20px;
         padding: 15px 25px;
         cursor: pointer;
-
         &:hover {
             border: 0.75px solid $dark-grey;
+        }
+        @media (max-width: $mobile) {
+            border: 0.75px solid $dark-grey;
+            width: 130px;
+            height: 60px;
+            font-size: 14px;
+            margin: 5px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 
@@ -29,6 +48,10 @@
         max-width: 500px;
         padding: 30px 0;
         font-size: 18px;
+        @media (max-width: $mobile) {
+            font-size: 12px;
+            padding: 20px;
+        }
     }
 
     &__details {
@@ -40,29 +63,52 @@
         justify-content: space-between;
         align-items: center;
         padding: 20px 0;
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            padding: 20px 20px 10px 20px;
+        }
     }
 
     &__details-column-left {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        @media (max-width: $mobile) {
+            align-items: center;
+        }
     }
     
     &__details-recipient {
         font-size: 24px;
+        @media (max-width: $mobile) {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
     }
 
     &__details-mission {
         font-size: 16px;
+        @media (max-width: $mobile) {
+            font-size: 12px;
+        }
     }
 
     &__details-gifts {
         font-size: 16px;
+        @media (max-width: $mobile) {
+            font-size: 12px;
+            margin-top: 5px;
+        }
     }
 
     &__details-line {
         height: 1px;
         width: 100%;
         background-color: $dark-grey;
+        @media (max-width: $mobile) {
+            width: calc(100% - 20px);
+            margin: 0 auto;
+        }
     }
 }

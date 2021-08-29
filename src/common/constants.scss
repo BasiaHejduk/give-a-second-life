@@ -10,6 +10,11 @@ $light-grey: #F0F1F1;
 $open-sans: 'Open Sans', sans-serif;
 $merri: 'Merriweather', serif;
 
+$mobile: 900px;
+$tablet: 1022px;
+$desktop: 1200px;
+$large-desktop: 1679px;
+
 @mixin button {
     width: 250px;
     height: 100px;
@@ -18,6 +23,12 @@ $merri: 'Merriweather', serif;
     margin: 20px;
     font-size: 24px;
     cursor: pointer;
+    @media (max-width: $mobile) {
+        width: 130px;
+        height: 60px;
+        font-size: 14px;
+        margin: 10px;
+    }
 }
 
 @mixin line {

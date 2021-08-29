@@ -12,9 +12,12 @@
         text-decoration: none;
         padding: 10px;
         cursor: pointer;
-
         &:hover {
             border: 1px solid $dark-grey;
         }
+        @media (max-width: $mobile) {
+            font-size: 14px;
+            padding: 5px;
+        } 
     }
 }
