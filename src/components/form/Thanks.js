@@ -4,7 +4,7 @@ import './Form.scss';
 const Thanks = () => {
     return (
         <>    
-            <div className="form">
+            <div className="form form--thanks">
                 <div className="form__thanks-title">
                     <Title text="Dziękujemy za przesłanie formularza. 
                             Na maila prześlemy wszelkie informacje o odbiorze"/>

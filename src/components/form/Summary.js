@@ -11,7 +11,7 @@ const Summary = ({updateStep, giftChoiceState, bagsState, localizationState, toW
         if (bagsState === "1") {setSummaryBags("1 worek")};
         if (bagsState === "2" || bagsState === "3" || bagsState === "4") {setSummaryBags(`${bagsState} worki`)};
         if (bagsState === "5") {setSummaryBags("5 worków")};
-        if (giftChoiceState === "used-clothes") {setSummaryGifts("ubrania, które nadają się do ponownego użycia")};
+        if (giftChoiceState === "used-clothes") {setSummaryGifts("ubrania, które nadają się do użycia")};
         if (giftChoiceState === "trash-clothes") {setSummaryGifts("ubrania do wyrzucenia")};
         if (giftChoiceState === "toys") {setSummaryGifts("zabawki")};
         if (giftChoiceState === "books") {setSummaryGifts("książki")};

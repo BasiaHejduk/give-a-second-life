@@ -32,7 +32,7 @@ const Step1 = ({updateStep, updateGiftState, giftChoiceState}) => {
                                 value="used-clothes" onChange={()=>setGiftChoice("used-clothes")}
                                 checked={giftChoice === "used-clothes"}
                         ></input>
-                        <label className="form__label">ubrania, które nadają się do ponownego użytku</label>
+                        <label className="form__label">ubrania, które nadają się do użytku</label>
                     </div>
                     <div className="form__input-wrapper">
                         <input className="form__input-radio" type="radio" name="gift-choice" 

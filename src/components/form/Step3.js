@@ -64,8 +64,6 @@ const Step3 = ({updateStep, updateLocalizationState, updateToWhoState, updateOrg
                                     ></input>
                                     <label className="form__label form__label--checkbox">bezdomnym</label>
                                 </div>
-                            </div>
-                            <div className="form__checkbox-wrapper">
                                 <div className="form__input-wrapper form__input-wrapper--step3">
                                     <input className="form__checkbox" type="checkbox" name="help-type"
                                             value="niepełnosprawnym" onChange={(e)=> setToWho(e.target.value)}
@@ -81,7 +79,7 @@ const Step3 = ({updateStep, updateLocalizationState, updateToWhoState, updateOrg
                                     <label className="form__label form__label--checkbox">osobom starszym</label>
                                 </div>
                             </div>
-                            <p className="form__tagline">Wpisz nazwę konkretnej organizacji (opcjonalnie)</p>
+                            <p className="form__tagline">Wpisz nazwę organizacji (opcjonalnie)</p>
                             <input className="form__input-text" type="text" 
                                    value={organization} onChange={(e)=> setOrganization(e.target.value)}></input>
                     </div>

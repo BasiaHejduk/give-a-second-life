@@ -28,7 +28,7 @@ const Steps = ({user}) => {
                     <p className="steps__details">kurier przyjedzie w dogodnym terminie</p>
                 </div>
             </div>
-            <Link to= {user ? "/oddaj-rzeczy" : "/logowanie"}>
+            <Link to="/oddaj-rzeczy">
                 <button className="steps__button">ODDAJ <br/> RZECZY </button>
             </Link>
         </div>

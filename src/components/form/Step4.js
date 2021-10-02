@@ -37,7 +37,7 @@ const Step4 = ({updateStep, updateStreetState, updateCityState, updatePostCodeSt
     return (
     <>
         <YellowBar text={`Podaj adres oraz termin odbioru rzeczy.`}/>       
-        <div className="form">
+        <div className="form form--step4">
             <p className="form__step">Krok 4/4</p>
             <h3 className="form__headline">Podaj adres oraz termin odbioru rzeczy przez kuriera</h3>
             <form className="form__form" onSubmit={handleFormSubmit}>

@@ -1,7 +1,7 @@
+import { useState } from "react";
 import {scroller} from "react-scroll";
 import { Link } from 'react-router-dom';
 import './Menu.scss';
-import { useState } from "react";
 
 const Menu = () => {
     const [mobileMenu, setMobileMenu] = useState(false);
@@ -31,10 +31,18 @@ const Menu = () => {
                     <Link to="/" className="menu__link">
                         <li className="menu__mobile-item" onClick={()=> {handleOnClickMenu("start"); toggleMobileMenu()}}>Start</li>
                     </Link>
-                    <li className="menu__mobile-item" onClick={()=> {handleOnClickMenu("steps"); toggleMobileMenu()}}>O co chodzi?</li>
-                    <li className="menu__mobile-item" onClick={()=> {handleOnClickMenu("about"); toggleMobileMenu()}}>O nas</li>
-                    <li className="menu__mobile-item" onClick={()=> {handleOnClickMenu("help"); toggleMobileMenu()}}>Fundacja i organizacje</li>
-                    <li className="menu__mobile-item" onClick={()=> {handleOnClickMenu("contact"); toggleMobileMenu()}}>Kontakt</li>
+                    <Link to="/" className="menu__link">
+                        <li className="menu__mobile-item" onClick={()=> {handleOnClickMenu("steps"); toggleMobileMenu()}}>O co chodzi?</li>
+                    </Link>
+                    <Link to="/" className="menu__link">
+                        <li className="menu__mobile-item" onClick={()=> {handleOnClickMenu("about"); toggleMobileMenu()}}>O nas</li>
+                    </Link>
+                    <Link to="/" className="menu__link">
+                        <li className="menu__mobile-item" onClick={()=> {handleOnClickMenu("help"); toggleMobileMenu()}}>Fundacja i organizacje</li>
+                    </Link>
+                    <Link to="/" className="menu__link">
+                        <li className="menu__mobile-item" onClick={()=> {handleOnClickMenu("contact"); toggleMobileMenu()}}>Kontakt</li>
+                    </Link>
                 </ul> : null
             }
             <ul className="menu__item-list">
