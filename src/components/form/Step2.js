@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
+import { FormContext } from "./Form";
 import './Form.scss';
 
-const Step2 = ({updateStep, updateBagsState, bagsState}) => {
-    const [bagsNumber, setBagsNumber] = useState(bagsState);
+const Step2 = () => {
+    const context = useContext(FormContext);
+    const [bagsNumber, setBagsNumber] = useState(context.bagsState);
     const [step2Validate, setStep2Validate] = useState(true);
 
     const handleFormSubmit = (e) => {
@@ -13,11 +15,11 @@ const Step2 = ({updateStep, updateBagsState, bagsState}) => {
         if (bagsNumber === "") {
             setStep2Validate(false);
         } else {
-            updateStep(3);
-            updateBagsState(bagsNumber);
+            context.updateStep(3);
+            context.updateBagsState(bagsNumber);
         }
     };
-    const previousStep = () => {updateStep(1)};
+    const previousStep = () => {context.updateStep(1)};
     
     return (
         <>

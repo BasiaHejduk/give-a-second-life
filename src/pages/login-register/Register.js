@@ -1,29 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { AppContext } from '../../App';
 import Menu from '../../components/menu/Menu';
 import Title from '../../components/title/Title';
 import './Login.scss';
 
-const Register = ({email, setEmail, password, setPassword, handleSignUp, authError, user}) => {
+const Register = () => {
+    const context = useContext(AppContext);
     const [firstPassword, setFirstPassword] = useState("");
     const [differentPasswords, setDifferentPasswords] = useState(false);
     let history = useHistory();
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        if (firstPassword === password) {
+        if (firstPassword === context.password) {
             setDifferentPasswords(false);
-            handleSignUp();
+            context.handleSignUp();
         } else {
             setDifferentPasswords(true);
         }
     }
 
     useEffect(() => {
-        if (user) {
+        if (context.user) {
             history.push("/oddaj-rzeczy")
         }
-    }, [user, history]);
+    }, [context.user, history]);
 
     return (
         <div className="login">
@@ -34,11 +36,11 @@ const Register = ({email, setEmail, password, setPassword, handleSignUp, authErr
                     <div className="login__form-inputs">
                         <label className="login__label">Email</label>
                         <input 
-                            value={email}
+                            value={context.email}
                             className="login__input"
                             type="mail" 
                             required
-                            onChange={(e)=> setEmail(e.target.value)}>
+                            onChange={(e)=> context.setEmail(e.target.value)}>
                         </input>
                         <label className="login__label">Hasło</label>
                         <input 
@@ -50,14 +52,14 @@ const Register = ({email, setEmail, password, setPassword, handleSignUp, authErr
                         </input>
                         <label className="login__label">Powtórz hasło</label>
                         <input 
-                            value={password}
+                            value={context.password}
                             className="login__input"
                             type="password" 
                             required
-                            onChange={(e)=> setPassword(e.target.value)}>
+                            onChange={(e)=> context.setPassword(e.target.value)}>
                         </input>
                         {differentPasswords ? <p className="login__form-alert">Hasła są różne</p> : <p></p>}
-                        {authError ? <p className="login__form-alert">Błędny email lub za krótkie hasło (min. 6 znaków)</p> : <p></p>}
+                        {context.authError ? <p className="login__form-alert">Błędny email lub za krótkie hasło (min. 6 znaków)</p> : <p></p>}
                     </div>
                     <div className="login__buttons">
                         <Link to="/logowanie"><button className="login__button">Zaloguj się</button></Link>

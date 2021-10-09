@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import About from "../sections/about/About";
 import Contact from "../sections/contact/Contact";
 import Help from "../sections/help/Help";
@@ -6,14 +7,16 @@ import Steps from "../sections/steps/Steps";
 import YellowBanner from "../sections/yellow-banner/YellowBanner";
 import Menu from "../components/menu/Menu";
 import MenuLoggedIn from "../components/menu/MenuLoggedIn";
+import { AppContext } from "../App";
 
-const Home = ({handleLogout, user}) => {
+const Home = () => {
+    const context = useContext(AppContext);
     return (
         <>
-            {user ? <MenuLoggedIn handleLogout={handleLogout} user={user}/> : <Menu/>}
-            <HomeStart user={user}/>
+            {context.user ? <MenuLoggedIn/> : <Menu/>}
+            <HomeStart/>
             <YellowBanner/>
-            <Steps user={user}/>
+            <Steps/>
             <About/>
             <Help/>
             <Contact/>

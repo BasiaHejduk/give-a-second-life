@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
+import { FormContext } from "./Form";
 import './Form.scss';
 
-const Step4 = ({updateStep, updateStreetState, updateCityState, updatePostCodeState, updatePhoneState, 
-                updateDateState, updateHourState, updateRemarksState, streetState, cityState, postCodeState, 
-                phoneState, dateState, hourState, remarksState}) => {
-    const [street, setStreet] = useState(streetState);
-    const [city, setCity] = useState(cityState);
-    const [postCode, setPostCode] = useState(postCodeState);
-    const [phone, setPhone] = useState(phoneState);
-    const [date, setDate] = useState(dateState);
-    const [hour, setHour] = useState(hourState);
-    const [remarks, setRemarks] = useState(remarksState);
+const Step4 = () => {
+    const context = useContext(FormContext);
+    const [street, setStreet] = useState(context.streetState);
+    const [city, setCity] = useState(context.cityState);
+    const [postCode, setPostCode] = useState(context.postCodeState);
+    const [phone, setPhone] = useState(context.phoneState);
+    const [date, setDate] = useState(context.dateState);
+    const [hour, setHour] = useState(context.hourState);
+    const [remarks, setRemarks] = useState(context.remarksState);
     const [step4Validate, setStep4Validate] = useState(true);
 
     const handleFormSubmit = (e) => {
@@ -22,17 +22,17 @@ const Step4 = ({updateStep, updateStreetState, updateCityState, updatePostCodeSt
             || date === "" || hour === "" || remarks === "") {
             setStep4Validate(false)
         } else {
-            updateStep(5);
-            updateStreetState(street);
-            updateCityState(city);
-            updatePostCodeState(postCode);
-            updatePhoneState(phone);
-            updateDateState(date);
-            updateHourState(hour);
-            updateRemarksState(remarks);
+            context.updateStep(5);
+            context.updateStreetState(street);
+            context.updateCityState(city);
+            context.updatePostCodeState(postCode);
+            context.updatePhoneState(phone);
+            context.updateDateState(date);
+            context.updateHourState(hour);
+            context.updateRemarksState(remarks);
         }
     };
-    const previousStep = () => {updateStep(3)};
+    const previousStep = () => {context.updateStep(3)};
     
     return (
     <>

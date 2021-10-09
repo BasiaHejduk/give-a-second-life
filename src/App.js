@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/login-register/Login';
@@ -7,6 +7,8 @@ import Logout from './pages/login-register/Logout';
 import FormPage from './pages/FormPage';
 import fire from './firebase'
 import './App.scss';
+
+export const AppContext = React.createContext();
 
 const App = () => {
   const [user, setUser] = useState("");
@@ -59,47 +61,25 @@ const App = () => {
   return (
     <div className="App">
       <Router>
+        <AppContext.Provider value={{
+          user, 
+          email,
+          password,
+          authError,
+          setEmail,
+          setPassword,
+          handleSignUp,
+          handleLogin,
+          handleLogout,
+        }}>
         <Switch>
-          <Route 
-            path="/" exact 
-            render={(props) => <Home {... props} 
-                                handleLogout={handleLogout}
-                                user={user}
-                                />}
-          />
-          <Route 
-            path="/logowanie" exact 
-            render={(props) => <Login {...props} 
-                                email={email}
-                                setEmail={setEmail}
-                                password={password}
-                                setPassword={setPassword}
-                                handleLogin={handleLogin}
-                                authError={authError}
-                                user={user}
-                                />}
-          />
-          <Route 
-            path="/rejestracja" exact 
-            render={(props) => <Register {...props}
-                                email={email}                                
-                                setEmail={setEmail}
-                                password={password}
-                                setPassword={setPassword}
-                                handleSignUp={handleSignUp}
-                                authError={authError}
-                                user={user}
-                                />}
-          />
+          <Route path="/" exact component={Home}/>
+          <Route path="/logowanie" exact component={Login}/>
+          <Route path="/rejestracja" exact component={Register}/>
           <Route path="/wylogowano" exact component={Logout}/>
-          <Route 
-            path="/oddaj-rzeczy" exact 
-            render={(props) => <FormPage {...props}
-                                handleLogout={handleLogout}
-                                user={user}
-                                />}
-          />
+          <Route path="/oddaj-rzeczy" exact component={FormPage}/>
         </Switch>
+        </AppContext.Provider>
       </Router>
     </div>
   );

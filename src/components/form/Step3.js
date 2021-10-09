@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
+import { FormContext } from "./Form";
 import './Form.scss';
 
-const Step3 = ({updateStep, updateLocalizationState, updateToWhoState, updateOrganizationState, localizationState, toWhoState}) => {
-    const [localization, setLocalization] = useState(localizationState);
-    const [toWho, setToWho] = useState(toWhoState);
+const Step3 = () => {
+    const context = useContext(FormContext);
+    const [localization, setLocalization] = useState(context.localizationState);
+    const [toWho, setToWho] = useState(context.toWhoState);
     const [organization, setOrganization] = useState("");
     const [step3Validate, setStep3Validate] = useState(true);
 
@@ -15,13 +17,13 @@ const Step3 = ({updateStep, updateLocalizationState, updateToWhoState, updateOrg
         if (localization === "" || toWho === "") {
             setStep3Validate(false)
         } else {
-            updateStep(4);
-            updateLocalizationState(localization);
-            updateToWhoState(toWho);
-            updateOrganizationState(organization);
+            context.updateStep(4);
+            context.updateLocalizationState(localization);
+            context.updateToWhoState(toWho);
+            context.updateOrganizationState(organization);
         }
     };
-    const previousStep = () => {updateStep(2)};
+    const previousStep = () => {context.updateStep(2)};
     
     return (
         <>

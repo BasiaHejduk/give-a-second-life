@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {scroller} from "react-scroll";
 import { Link } from 'react-router-dom';
+import { AppContext } from "../../App";
 import './Menu.scss';
 
-const MenuLoggedIn = ({handleLogout, user}) => {
+const MenuLoggedIn = () => {
+    const context = useContext(AppContext);
     const [mobileMenu, setMobileMenu] = useState(false);
     const handleOnClickMenu = (where) => {
         scroller.scrollTo(where);
@@ -21,7 +23,7 @@ const MenuLoggedIn = ({handleLogout, user}) => {
             <div className="menu__login-list">
                 {/* <p className="menu__welcome">Cześć {user.email}</p> */}
                 <Link to="/oddaj-rzeczy" className="menu__link"><div className="menu__login">Oddaj rzeczy</div></Link>
-                <Link to="/wylogowano" className="menu__link"><div className="menu__login" onClick={handleLogout}>Wyloguj</div></Link>
+                <Link to="/wylogowano" className="menu__link"><div className="menu__login" onClick={context.handleLogout}>Wyloguj</div></Link>
             </div>
             { mobileMenu ? 
                 <ul className="menu__mobile-list">

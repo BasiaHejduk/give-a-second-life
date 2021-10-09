@@ -1,22 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { AppContext } from '../../App';
 import Menu from '../../components/menu/Menu';
 import Title from '../../components/title/Title';
 import './Login.scss';
 
-const Login = ({email, setEmail, password, setPassword, handleLogin, authError, user}) => {
+const Login = () => {
+    const context = useContext(AppContext);
     let history = useHistory();
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        handleLogin();
+        context.handleLogin();
     }
 
     useEffect(() => {
-        if (user) {
+        if (context.user) {
             history.push("/oddaj-rzeczy")
         }
-    }, [user, history]);
+    }, [context.user, history]);
 
     return (
         <div className="login">
@@ -27,21 +29,21 @@ const Login = ({email, setEmail, password, setPassword, handleLogin, authError, 
                     <div className="login__form-inputs">
                         <label className="login__label">Email</label>
                         <input 
-                            value={email}
+                            value={context.email}
                             className="login__input"
                             type="mail" 
                             required
-                            onChange={(e)=> setEmail(e.target.value)}>
+                            onChange={(e)=> context.setEmail(e.target.value)}>
                         </input>
                         <label className="login__label">Hasło</label>
                         <input 
-                            value={password}
+                            value={context.password}
                             className="login__input"
                             type="password" 
                             required
-                            onChange={(e)=> setPassword(e.target.value)}>
+                            onChange={(e)=> context.setPassword(e.target.value)}>
                         </input>
-                        {authError ? <p className="login__form-alert">Błędny email lub hasło</p> : <p></p>}
+                        {context.authError ? <p className="login__form-alert">Błędny email lub hasło</p> : <p></p>}
                     </div>
                     <div className="login__buttons">
                         <Link to="/rejestracja"><button className="login__button">Załóż konto</button></Link>

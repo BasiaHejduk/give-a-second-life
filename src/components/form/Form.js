@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
 import Step4 from './Step4';
 import Summary from './Summary';
 import Thanks from './Thanks';
+
+export const FormContext = React.createContext();
 
 const Form = () => {
     const [step, setStep] = useState(1);
@@ -36,62 +38,46 @@ const Form = () => {
     const updateRemarksState = (remarksState) => setRemarksState(remarksState);
 
     let stepToRender;
-    if (step === 1) {
-        stepToRender = <Step1 updateStep={updateStep} 
-                            updateGiftState={updateGiftState}
-                            giftChoiceState={giftChoiceState}
-                            />};
-    if (step === 2) {
-        stepToRender = <Step2 updateStep={updateStep} 
-                            updateBagsState={updateBagsState}
-                            bagsState={bagsState}
-                            />};
-    if (step === 3) {
-        stepToRender = <Step3 updateStep={updateStep} 
-                            updateLocalizationState={updateLocalizationState}
-                            updateToWhoState={updateToWhoState}
-                            updateOrganizationState={updateOrganizationState}
-                            localizationState={localizationState}
-                            toWhoState={toWhoState}
-                            />};
-    if (step === 4) {
-        stepToRender = <Step4 updateStep={updateStep}
-                            updateStreetState={updateStreetState}
-                            updateCityState={updateCityState}
-                            updatePostCodeState={updatePostCodeState}
-                            updatePhoneState={updatePhoneState}
-                            updateDateState={updateDateState}
-                            updateHourState={updateHourState}
-                            updateRemarksState={updateRemarksState}
-                            streetState={streetState}
-                            cityState={cityState}
-                            postCodeState={postCodeState}
-                            phoneState={phoneState}
-                            dateState={dateState}
-                            hourState={hourState}
-                            remarksState={remarksState}
-                            />};
-    if (step === 5) {
-        stepToRender = <Summary updateStep={updateStep} 
-                            giftChoiceState={giftChoiceState}
-                            bagsState={bagsState}
-                            localizationState={localizationState}
-                            toWhoState={toWhoState}
-                            organizationState={organizationState}
-                            streetState={streetState}
-                            cityState={cityState}
-                            postCodeState={postCodeState}
-                            phoneState={phoneState}
-                            dateState={dateState}
-                            hourState={hourState}
-                            remarksState={remarksState}
-                            />};
-    if (step === 6) {
-        stepToRender = <Thanks/>};
+
+    if (step === 1) {stepToRender = <Step1/>};
+    if (step === 2) {stepToRender = <Step2/>};
+    if (step === 3) {stepToRender = <Step3/>};
+    if (step === 4) {stepToRender = <Step4/>};
+    if (step === 5) {stepToRender = <Summary/>};
+    if (step === 6) {stepToRender = <Thanks/>};
 
     return (
         <>
-            {stepToRender}
+            <FormContext.Provider value={{
+                    step,
+                    giftChoiceState,
+                    bagsState,
+                    localizationState,
+                    toWhoState,
+                    organizationState,
+                    streetState,
+                    cityState,
+                    postCodeState,
+                    phoneState,
+                    dateState,
+                    hourState,
+                    remarksState,
+                    updateStep,
+                    updateGiftState,
+                    updateBagsState,
+                    updateLocalizationState,
+                    updateToWhoState,
+                    updateOrganizationState,
+                    updateStreetState,
+                    updateCityState,
+                    updatePostCodeState,
+                    updatePhoneState,
+                    updateDateState,
+                    updateHourState,
+                    updateRemarksState
+            }}>
+                {stepToRender}
+            </FormContext.Provider>
         </>
     )
 };

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Title from '../../components/title/Title';
 import './Steps.scss';
 
-const Steps = ({user}) => {
+const Steps = () => {
     return (
         <div className="steps" name="steps">
             <Title text="Wystarczą 4 proste kroki"></Title>

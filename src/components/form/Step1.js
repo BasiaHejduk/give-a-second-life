@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import YellowBar from "../yellow-bar-form/YellowBar";
+import { FormContext } from "./Form";
 import './Form.scss';
 
-const Step1 = ({updateStep, updateGiftState, giftChoiceState}) => {
-    const [giftChoice, setGiftChoice] = useState(giftChoiceState);
+const Step1 = () => {
+    const context = useContext(FormContext);
+    const [giftChoice, setGiftChoice] = useState(context.giftChoiceState);
     const [step1Validate, setStep1Validate] = useState(true);
-    
+
     const handleFormSubmit = (e) => {
         e.preventDefault();  
     }
@@ -13,8 +15,8 @@ const Step1 = ({updateStep, updateGiftState, giftChoiceState}) => {
         if (giftChoice === "") {
             setStep1Validate(false);
         } else {
-            updateStep(2);
-            updateGiftState(giftChoice);
+            context.updateStep(2);
+            context.updateGiftState(giftChoice);
         }
     };
     
@@ -70,7 +72,6 @@ const Step1 = ({updateStep, updateGiftState, giftChoiceState}) => {
             </form>
         </div>
     </>
-
     )
 };
 
